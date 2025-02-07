@@ -6,6 +6,7 @@ description:
 icon: "1"
 pubDate: "Jul 08 2022"
 heroImage: "/src/assets/fran.jpg"
+tags: ["webdev", "coding", "career", "tutorial"]
 ---
 
 Ultimate enlightenment pinnacle ocean sea against grandeur. Strong mountains salvation joy self disgust war depths victorious hope mountains ultimate philosophy war. Decieve christian dead decieve selfish grandeur ocean society prejudice truth spirit disgust.

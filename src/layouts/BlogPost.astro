@@ -36,6 +36,17 @@ if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: 
 const getRandomClass = () => {
   return bgClasses[Math.floor(Math.random() * bgClasses.length)];
 };
+
+const tagColors = [
+  "bg-ppink",
+  "bg-pgreen",
+  "bg-pblue",
+  "bg-pyellow"
+];
+
+const getRandomTagColor = () => {
+  return tagColors[Math.floor(Math.random() * tagColors.length)];
+};
 ---
 
 <html lang="en">
@@ -71,7 +82,15 @@ const getRandomClass = () => {
               }
               <Icon name={icon} class="text-5xl" transition:animate="fade" />
             </div>
-
+            {tags && tags.length > 0 && (
+              <div class="flex flex-wrap gap-2 mt-2 mb-6">
+                {tags.map((tag) => (
+                  <span class={`px-3 py-1 text-sm border-1 border-black rounded-full ${getRandomTagColor()} shadow-card hover:shadow-hover transition`}>
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            )}
             <hr />
           </div>
           <div class="flex justify-between py-10 md:flex-row flex-col">

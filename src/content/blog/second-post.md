@@ -5,6 +5,7 @@ description:   'Foto de <a class="underline" href="https://unsplash.com/es/@adri
 icon: "4"
 pubDate: 'Jul 15 2022'
 heroImage: "/src/assets/fran.jpg"
+tags: ["webdev", "coding", "career", "tutorial"]
 ---
 Madness enlightenment mountains passion strong strong virtues chaos ascetic chaos mountains ascetic passion enlightenment. Madness free evil will ubermensch overcome deceptions battle will philosophy. Value contradict hope derive sea fearful convictions contradict free war depths morality. Prejudice horror aversion morality madness philosophy.
 

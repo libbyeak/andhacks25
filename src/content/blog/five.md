@@ -6,6 +6,7 @@ description:
 icon: "1"
 pubDate: "Jul 08 2022"
 heroImage: "/src/assets/adriana.jpg"
+tags: ["webdev", "coding", "career", "tutorial"]
 ---
 
 This example is from https://markdown-it.github.io/
