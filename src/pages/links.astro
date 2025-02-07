@@ -3,9 +3,14 @@ import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 import linksData from "../data/links.json";
 
 const { links } = linksData;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif}"
+);
 ---
 
 <html lang="en">
@@ -21,8 +26,8 @@ const { links } = linksData;
       <div class="max-w-2xl mx-auto py-8">
         <div class="text-center mb-8">
           <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-pgreen border-4 border-black shadow-card">
-            <img 
-              src="/src/assets/kedasha.png" 
+            <Image 
+              src={images["/src/assets/kedasha-happy.png"]()}
               alt="Profile" 
               class="w-full h-full object-cover"
             />

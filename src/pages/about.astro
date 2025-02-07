@@ -1,5 +1,6 @@
 ---
 import Layout from '@/layouts/BlogPost.astro';
+import { Image } from "astro:assets";
 const tags = ['astro', 'react', 'svelte', 'vue', 'web-components'];
 const description = `
   <p class="text-left">
@@ -13,6 +14,10 @@ const description = `
     >
   </p>
 `;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif}"
+);
 ---
 
 <Layout
@@ -27,7 +32,7 @@ const description = `
 		Hey, I'm Kedasha👋🏽 and I'm a Developer Educator, Speaker and Software Engineer.
 	</h2>
 
-	<img  src="/src/assets/kedasha-happy.png" alt="kedasha" width="300" height="500">
+	<Image  src={images["/src/assets/kedasha.png"]()} alt="kedasha" width="300" height="500" />
 
 	<p>
 		If you had told me in 2019 that I’d be where I am today, I would have laughed in your face. 
