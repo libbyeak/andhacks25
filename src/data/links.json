@@ -1,0 +1,28 @@
+{
+  "links": [
+    {
+      "title": "Blog",
+      "url": "/blog",
+      "icon": "web",
+      "bg": "bg-ppink"
+    },
+    {
+      "title": "GitHub",
+      "url": "https://github.com/LadyKerr",
+      "icon": "github",
+      "bg": "bg-pgreen"
+    },
+    {
+      "title": "LinkedIn",
+      "url": "https://linkedin.com/in/kedashakerr",
+      "icon": "linkedin",
+      "bg": "bg-pblue"
+    },
+    {
+      "title": "Instagram",
+      "url": "https://instagram.com/itsthatlady.dev",
+      "icon": "insta",
+      "bg": "bg-pyellow"
+    }
+  ]
+}

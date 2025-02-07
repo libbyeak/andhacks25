@@ -1,0 +1,51 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { Icon } from "astro-icon/components";
+import linksData from "../data/links.json";
+
+const { links } = linksData;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead 
+      title="Links | That LadyDev" 
+      description="All my important links in one place"
+    />
+  </head>
+  <body>
+    <Header />
+    <main class="container mx-auto px-4 md:px-10">
+      <div class="max-w-2xl mx-auto py-8">
+        <div class="text-center mb-8">
+          <div class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-pgreen border-4 border-black shadow-card">
+            <img 
+              src="/src/assets/kedasha.png" 
+              alt="Profile" 
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <h1 class="text-3xl font-bold mb-2">That LadyDev</h1>
+          <p class="text-gray-600">Developer Educator & Software Engineer</p>
+        </div>
+        
+        <div class="flex flex-col gap-4">
+          {links.map((link) => (
+            <a
+              href={link.url}
+              class={`flex items-center gap-3 p-4 rounded-lg ${link.bg} shadow-card hover:shadow-hover transition-all`}
+              target={link.url.startsWith('http') ? '_blank' : '_self'}
+              rel={link.url.startsWith('http') ? 'noopener noreferrer' : ''}
+            >
+              <Icon name={link.icon} class="w-6 h-6" />
+              <span class="text-lg font-semibold">{link.title}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
