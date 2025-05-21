@@ -7,6 +7,8 @@ const posts = (await getCollection("blog")).sort(
 import FormattedDate from "@/components/FormattedDate.astro";
 import { Icon } from "astro-icon/components";
 
+let getRandomClassIndex = -1; /* this seems like the easiest shim for function-level static variables in TS */
+
 const bgClasses = [
   "bg-pgreen rounded-full",
   "bg-pblue rounded-2xl",
@@ -15,7 +17,15 @@ const bgClasses = [
 ];
 
 const getRandomClass = () => {
-  return bgClasses[Math.floor(Math.random() * bgClasses.length)];
+  /* static int index; -- but this isn't C */
+  /* Some notes on this function:
+   * It's called every time a tile is created, and returns the name of a CSS class that sets the background color for
+   * that tile's icon. Originally, this was random, but I (RDR) thought the design should be consistent across visits.
+   * I therefore changed it to be deterministic, using a global variable. Note that this is a pain, because TS doesn't
+   * have an easy way to get function-level static variables.
+   */
+  getRandomClassIndex++;
+  return bgClasses[getRandomClassIndex % bgClasses.length]; //[Math.floor(Math.random() * bgClasses.length)];
 };
 ---
 
