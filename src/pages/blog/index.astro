@@ -1,4 +1,6 @@
 ---
+/* This file controls the layout of the tiles on the main page, which are also accessible at /blog, or via the "my work" button */
+/* Note that the *actual* blog pages are rendered from Markdown files in src/content */
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -9,7 +11,6 @@ const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
