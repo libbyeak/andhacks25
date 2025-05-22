@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon/components";
+import { Icon } from "astro-icon/components"; /* not used but maybe they will be */
 import { Image } from "astro:assets";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}"
@@ -10,7 +10,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
         <p class="text-5xl">&hacks XI Itinerary</p>
     </div>
 </section>-->
-<section> <!--class="py-5 flex md:flex-row flex-col justify-content justify-items px-4 md:px-0 gap-10 md:gap-0">-->
+<section class=" bg-pblue border-1 border-black shadow-card group hover:shadow-hover transition rounded-xl m-5 p-5"> <!--class="py-5 flex md:flex-row flex-col justify-content justify-items px-4 md:px-0 gap-10 md:gap-0">-->
   <div class="grid row-start-1">
     <div class="flex gap-0 justify-start items-start">
       <h3 class="text-6xl">&hacks Itinerary</h3>
