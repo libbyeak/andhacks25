@@ -40,12 +40,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
           }
         </table>
         <!-- TODO: this bloody thing won't right-align, for mysterious reasons -->
-        <a
+         <div class="flex flex-col p-5">
+          <a
           href="/schedule"
           class="flex flex-col justify-end items-center content-center bg-pgreen px-5 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition" 
-        >
+          >
         View Full Schedule
-      </a>
+        </a>
+      </div>  
       </div>
     </div>
     </div>

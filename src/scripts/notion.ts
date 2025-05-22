@@ -42,11 +42,3 @@ export async function getEvents(): Promise<ItineraryEvent[]> {
 
   return events;
 }
-
-getEvents()
-.then(result =>
-    console.log(result)
-)
-.catch(err => {
-    console.error(err)
-});
