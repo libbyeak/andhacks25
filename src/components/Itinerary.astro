@@ -14,13 +14,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
     </div>
   </div>
   <div class="grid row-start-2">
-    <div class="flex md:flex-row flex-col justify-content justify-items px-4 md:px-0 gap-10 md:gap-0">
+    <div class="flex md:flex-row flex-col justify-content items-end px-4 md:px-0 gap-10 md:gap-0">
       <div class="flex flex-col gap-0 justify-start items-start md:w-1/2 p-0px">
         <p class="text-3xl">Important Dates</p>
         <p class="text-6xl">September 26, 2025</p>
       </div>
-      <div class="flex flex-col md:w-1/2 object-contain items-start justify-start group gap-0 p-0px">
-        <p class="text-3xl">Fun Events</p>
+      <div class="flex flex-col md:w-1/2 object-contain justify-start group gap-0 p-0px">
+        <div class="flex flex-col items-start"><p class="text-2xl">Fun Events</p></div>
+        <div class="flex flex-col items-end">
         <table class="table-auto border-solid border-black rounded-xl">
           <thead>
               <th>Date/Time</th>
@@ -38,12 +39,14 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             ))
           }
         </table>
+        <!-- TODO: this bloody thing won't right-align, for mysterious reasons -->
         <a
           href="/schedule"
-          class="w-1/2 justify-center bg-pgreen px-5 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition" 
+          class="flex flex-col justify-end items-center content-center bg-pgreen px-5 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition" 
         >
         View Full Schedule
       </a>
+      </div>
     </div>
     </div>
     </div>
