@@ -21,23 +21,16 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       </div>
       <div class="flex flex-col md:w-1/2 object-contain items-start justify-start group gap-0 p-0px">
         <p class="text-3xl">Fun Events</p>
-<section>
-  <h2>Schedule</h2>
-  <ul>
-    {
-      events.map((event) => (
-        <li>
-          <strong>{event.name}</strong><br/>
-          <date>{event.date}</date>
-          <p>{event.location}</p>
-          <p>{event.website}</p>
-        </li>
-      ))
-    }
-  </ul>
-</section>
-
-        <table class="table-auto">
+        <table class="table-auto border-solid border-black rounded-xl">
+          {events.map((event) => (
+            <tr class="odd:bg-pgreen even:bg-pyellow">
+              <td><p class="text-sm">{event.date}</p></td>
+              <td><p class="text-sm">{event.name}</p></td>
+              <td><p class="text-sm">{event.location}</p></td>
+              <td><p class="text-sm">{event.website}</p></td>
+            </tr>          
+            ))
+          }
           <!-- TK: fill this with events scraped from Notion -->
         </table>
           <div class="h-80 w-60 overflow-hidden relative -mt-30 rounded-2xl">
