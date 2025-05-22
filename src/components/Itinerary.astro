@@ -33,16 +33,18 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
               <td><p class="text-sm">{event.date.toDateString()}</p></td>
               <td><p class="text-sm">{event.name}</p></td>
               <td><p class="text-sm">{event.location}</p></td>
-              <td><p class="text-sm">{event.website}</p></td>
-            </tr>          
+              <td><p class="text-sm"><a href={event.website}>{event.website}</a></p></td>
+            </tr>
             ))
           }
         </table>
-          <div class="h-80 w-60 overflow-hidden relative -mt-30 rounded-2xl">
-              <!-- put something here I guess, probably? maybe it's useful?
-            </div>
-            </a>-->
-          </div>
-      </div>
-      </div>
+        <a
+          href="/schedule"
+          class="w-1/2 justify-center bg-pgreen px-5 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition" 
+        >
+        View Full Schedule
+      </a>
+    </div>
+    </div>
+    </div>
 </section>

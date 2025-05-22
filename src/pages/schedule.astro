@@ -1,0 +1,41 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
+import {getEvents} from "src/scripts/notion.ts"
+const allEvents = await getEvents();
+const now = new Date()
+---
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <div class="flex justify-center justify-items-center bg-slate-400">
+            <table class="table-auto w-5/6">
+                <thead>
+                    <th>Date/Time</th>
+                    <th>Event Name</th>
+                    <th>Location</th>
+                    <th>Website</th>
+                </thead>
+                <tbody>
+                    {allEvents.map(event => (
+                        <div class="m-0 p-0" id={event.date.getTime().toString()}> <!-- auto-navigate to anchor for the current time -->
+                            <tr class="odd:bg-pgreen even:bg-pyellow">
+                                <td>{event.date.toDateString()}</td>
+                                <td>{event.name}</td>
+                                <td>{event.location}</td>
+                                <td><a href="{event.website}">{event.website}</a></td>
+                            </tr>
+                        </div>
+                        ))
+                    }
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
