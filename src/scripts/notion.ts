@@ -12,14 +12,15 @@ export async function getEvents(): Promise<ItineraryEvent[]> {
   const notion = new Client({ auth: import.meta.env.NOTION_TOKEN });
   const pages = await notion.databases.query({
     database_id: import.meta.env.NOTION_DATABASE_ID,
-    /*
-    For now, at least, there are few enough events in the DB that we don't need a filter
-    filter: {
+    //For now, at least, there are few enough events in the DB that we don't need a filter
+    //On the full itinerary, we want to show events that already happened during the hackathon, so date filtering
+    //can't be done at this step. We've got to do that when we display the events.
+    /*filter: {
       and: [
         {
-          property: "website",
-          status: {
-            equals: "youtube.com",
+          property: "Date",
+          date: {
+            after: rightNow
           },
         },
       ],
