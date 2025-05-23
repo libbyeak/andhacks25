@@ -1,6 +1,4 @@
 ---
-/* The footer at the bottom of every page */
-//TODO: Change these to point at our websites/socials/Devpost
 const today = new Date();
 import { Icon } from "astro-icon/components";
 ---
@@ -8,7 +6,7 @@ import { Icon } from "astro-icon/components";
 <footer
   class="flex flex-col items-center container mx-auto p-10 text-center gap-10 pb-40"
 >
-  &copy; {today.getFullYear()} &hacks XI
+
   <div class="flex items-center gap-6 text-5xl">
     <a
       href="https://jramma.com"
@@ -18,7 +16,7 @@ import { Icon } from "astro-icon/components";
       <Icon name="web" />
     </a>
     <a
-      href="https://github.com/jramma"
+      href="https://andhacks-x.devpost.com/project-gallery" 
       target="_blank"
       class="border-1 p-1 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
     >
@@ -38,6 +36,6 @@ import { Icon } from "astro-icon/components";
     rel="noopener noreferrer"
     class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-6 rounded-xl shadow-md flex items-center gap-2 transition duration-200"
   >
-    ☕ Invítame a un café
+    Register now!
   </a>
 </footer>
