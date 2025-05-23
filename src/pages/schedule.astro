@@ -14,6 +14,13 @@ const now = new Date()
     </head>
     <body>
         <Header />
+        <div class="py-256px px-256px">
+            <!-- it turns out that if you don't have text in a div, a div you're trying to use to add space, the height
+        is always coerced to 0. That's irritating -->
+        <p class="text-7xl"> &nbsp &nbsp</p>
+        <p class="text-7xl"> &nbsp &nbsp</p>
+        <p class="text-4xl">&nbsp</p>
+        </div>
         <div class="flex justify-center justify-items-center bg-slate-400">
             <table class="table-auto w-5/6">
                 <thead>
@@ -37,5 +44,6 @@ const now = new Date()
                 </tbody>
             </table>
         </div>
+        <Footer />
     </body>
 </html>
