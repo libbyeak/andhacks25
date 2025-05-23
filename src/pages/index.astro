@@ -15,6 +15,11 @@ import Itinerary from "@/components/Itinerary.astro";
   </head>
   <body class="p-0 m-0 max-w-screen">
     <Header />
+    <div class="py-256px px-256px">
+      <!-- it turns out that if you don't have text in a div, a div you're trying to use to add space, the height
+       is always coerced to 0. That's irritating -->
+      <p class="text-7xl"> &nbsp &nbsp</p>
+    </div>
     <main class="container mx-auto md:px-10">
       <Hero />
       <Itinerary />
