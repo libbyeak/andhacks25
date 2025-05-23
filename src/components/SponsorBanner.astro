@@ -17,8 +17,9 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       <h3 class="text-6xl">Our Sponsors</h3>
     </div>
   </div>-->
-  <div class="grid row-start-2">
-    <div class="flex md:flex-row flex-col justify-content items-start px-4 md:px-0 gap-10 md:gap-0">
+  <div class="grid row-start-1">
+    <!-- This is what I changed, from a flex layout directive, to make the "Sponsor Us" button be vertically centered. It was some voodoo bullshit, I tell you. -->
+    <div class="flex flex-row justify-content justify-items-stretch px-4 md:px-0 gap-10 md:gap-0">
       <div class="flex flex-col gap-0 justify-start items-start w-2/3 md:w-5/6 p-0px">
         <h3 class="text-6xl p-0 m-3 underline">Our Sponsors</h3>
         <!-- left side -->
@@ -37,17 +38,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
          ))}
          </ul>
       </div>
-      <div class="flex flex-col w-1/3 md:w-1/6 h-full object-contain justify-start group gap-0 p-0px">
-        <div class="flex flex-col items-end h-full">
-         <div class="flex flex-col p-5 h-full">
-        <a href="/schedule">
-            <div class="flex flex-col w-11/12 h-full object-contain justify-center items-center group gap-0 px-10 py-20 bg-pgreen shadow-card rounded-xl border-1 border-black z-20">
+      <div class="flex flex-row w-1/3 md:w-1/6 h-full justify-end justify-self-stretch self-stretch items-center content-center object-contain group gap-0 p-0px">
+        <!-- right side -->
+        <div class="flex flex-row object-contain justify-center items-center justify-self-stretch self-stretch p-5 h-full">
+        <a class="flex flex-row justify-self-stretch min-w-full min-h-full" href="/schedule">
+            <div class="flex flex-row w-11/12 min-h-full justify-center items-center self-stretch group gap-0 px-10 py-20 bg-pgreen shadow-card rounded-xl border-1 border-black z-2">
                 <p class="text-3xl text-center">Sponsor Us!</p>
             </div>
         </a>
       </div>  
-      </div>
-    </div>
     </div>
     </div>
 </section>
