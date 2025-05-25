@@ -1,12 +1,14 @@
 ---
+/* This code is for the main page */
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Hero from "@/components/Hero.astro";
 import WhatIDo from "@/components/WhatIDo.astro";
+import Itinerary from "@/components/Itinerary.astro";
+import SponsorBanner from "@/components/SponsorBanner.astro";
 ---
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -14,8 +16,15 @@ import WhatIDo from "@/components/WhatIDo.astro";
   </head>
   <body class="p-0 m-0 max-w-screen">
     <Header />
+    <div class="py-256px px-256px">
+      <!-- it turns out that if you don't have text in a div, a div you're trying to use to add space, the height
+       is always coerced to 0. That's irritating -->
+      <p class="text-7xl"> &nbsp &nbsp</p>
+    </div>
     <main class="container mx-auto md:px-10">
       <Hero />
+      <Itinerary />
+      <SponsorBanner />
       <WhatIDo />
     </main>
     <Footer />

@@ -17,4 +17,14 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+const sponsors = defineCollection({
+    loader: glob({ base: './src/content/sponsors', pattern: '**/*{.md,mdx}'}),
+    schema: z.object({
+        tier: z.string(),
+        name: z.string(),
+        logo: z.string(),
+        logoAlt: z.string()
+    })
+});
+
+export const collections = { blog, sponsors };

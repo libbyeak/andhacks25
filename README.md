@@ -1,120 +1,38 @@
-# 🌐 Personal Portfolio
+# &hacks XI/2025 website
 
-Welcome to my personal portfolio demo repository! This project is a demonstration of what a personal portfolio could look like. It showcases various aspects of web development, including my work, skills, and projects.
+This is the source code for the Astro website used to publicize &hacks XI, W&M's 2025 hackathon. Some notes about the codebase are below:
 
-- You can view the deployed project at the following URL: [https://sorolla.netlify.app/](https://sorolla.netlify.app/)
-- Astro web templates: https://astro.build/themes/details/sorollaportfolio/
+###To install/run
 
-## 📂 Project Structure
+1. Install Node.JS and PNPM
+2. Install project dependencies with `pnpm i`
+3. Run `pnpm run dev` to serve the development site
 
-- **public/**: Contains public assets like images and fonts.
-- **src/**: Includes the source code for the portfolio.
-- **.gitignore**: Specifies files and directories to be ignored by Git.
-- **astro.config.mjs**: Configuration file for Astro.
-- **package.json**: Lists project dependencies and scripts.
-- **tailwind.config.mjs**: Configuration file for Tailwind CSS.
-- **tsconfig.json**: TypeScript configuration file.
+##To add content
 
+### Schedule Events
 
-### 🧭 /src structure
+This site features a Notion integration, and all itinerary events are filled in from a Notion database. For this to work, you must create a file
+in the project's root folder (named "andhacks25") called .env with two variables in it: 
+	
+- `NOTION_TOKEN`: the API token for the Notion integration. This will look like "ntn-" followed by an insanely long hexadecimal number.
 
-The `/src` directory contains the main source code for the project. Below is an overview of its structure:
+- `NOTION_DATABASE_ID`: The ID of the Notion DB from which to fetch events. This will just be an insanely long hexadecimal number.
+
+I haven't committed this info to Git, but I probably should
+
+### Sponsors
+
+Just add a Markdown file to `src/content/sponsors/` with these lines, and add a picture of their logo to `src/assets/sponsors`
+
 
 ```
-src
-├── assets
-│   ├── adriana.jpg
-│   ├── euro.jpg
-│   ├── fran.jpg
-│   └── hero.png
-├── components
-│   ├── BaseHead.astro
-│   ├── Footer.astro
-│   ├── FormattedDate.astro
-│   ├── Header.astro
-│   ├── HeaderLink.astro
-│   ├── Hero.astro
-│   └── WhatIDo.astro
-├── consts.ts
-├── content
-│   └── blog
-│       └── content in markdown format
-├── content.config.ts
-├── icons
-│   ├── 1.svg
-│   ├── 2.svg
-│   ├── 3.svg
-│   ├── 4.svg
-│   ├── 5.svg
-│   ├── beach.svg
-│   ├── github.svg
-│   ├── linkedin.svg
-│   ├── paint.svg
-│   └── web.svg
-├── layouts
-│   └── BlogPost.astro
-├── pages
-│   ├── about.astro
-│   ├── blog
-│   │   ├── index.astro
-│   │   └── [...slug].astro
-│   ├── index.astro
-│   └── rss.xml.js
-└── styles
-    ├── global.css
-    └── hamburgers.css
+--
+name: 'William & Mary Entrepreneurship Hub'
+tier: 'Bronze'
+logo: 'src/assets/sponsors/ehub.svg'
+logoAlt: the E-hub logo'
+---
 ```
 
-#### Explanation
-
-- **assets**: Contains image files used in the project.
-- **components**: Contains reusable UI components built with Astro.
-- **content**: Contains blog content in Markdown format.
-- **content.config.ts**: Configuration file for content collections.
-- **icons**: Contains SVG icon files used in the project.
-- **layouts**: Contains layout components.
-  - `BlogPost.astro`: Layout component for blog posts.
-- **pages**: Contains the main pages of the site.
-  - `blog/index.astro`: Blog index page.
-  - `blog/[...slug].astro`: Dynamic route for individual blog posts.
-- **styles**: Contains global and component-specific CSS files.
-  - `global.css`: Global styles for the project.
-  - `hamburgers.css`: Styles for the hamburger menu.
-
-This structure helps in organizing the project files and makes it easier to maintain and scale the project.
-
-
-## 🚀 Getting Started
-
-To run this project locally:
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/jramma/sorollaportfolio.git
-   cd sorollaportfolio
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
-   bun install
-   ```
-
-3. **Start the development server:**
-
-   ```bash
-   bun dev
-   ```
-
-   The application will be available at `http://localhost:4321`.
-
-## 🛠️ Technologies Used
-
-- **Astro**: A modern static site builder.
-- **Tailwind CSS**: A utility-first CSS framework.
-- **TypeScript**: A statically typed programming language.
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+Everything else should happen automatically, but let me know of any issues.
