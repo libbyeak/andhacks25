@@ -23,7 +23,9 @@ export default {
         pyellow: "#F2CF96",
         ppurlple: "#9D859A",
         pblack: "#4E6273",
-        pdarkblue: "#111150",
+        pdarkblue: "#272757",
+        pevergreen: "#05472A",
+        psienna: "#ED7B58",
         white: {
           DEFAULT: "#F2F2F2",
         },
