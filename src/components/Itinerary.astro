@@ -15,19 +15,19 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   </div>
   <div class="grid row-start-2">
     <div class="flex md:flex-row flex-col justify-content items-center p-50px m-50px gap-10">
-      <div class="flex flex-col gap-2 justify-start items-center text-center md:w-1/2 p-0px border-3 border-black rounded-md">
+      <div class="flex flex-col gap-2 justify-start items-center text-center md:w-1/2 p-0px border-3 border-black text-white bg-pdarkblue rounded-md">
         <p class="text-5xl">Sep. 26, 2025, at 6:00 p.m.</p>
         <p class="text-4xl">In William and Mary's <br><strong class="underline">Integrated Science Center</strong></p>
         <p class="text-3xl">540 Landrum Drive, Williamsburg, VA 23186</p>
       </div>
-      <div class="flex flex-col md:w-1/2 object-contain justify-start group gap-3 border-3 border-black rounded-md">
+      <div class="flex flex-col md:w-1/2 object-contain justify-start group gap-3 border-3 border-black rounded-md bg-gray-300">
         <div class="flex flex-col items-start"><p class="text-3xl">Fun Events</p></div>
         <div class="flex flex-col items-center">
         <table class="table-auto border-solid border-black rounded-xl">
           <thead>
-              <th>Date/Time</th>
-              <th>Event</th>
-              <th>Location</th>
+              <th class=>Date/Time</th>
+              <th class=>Event</th>
+              <th class=>Location</th>
           </thead>
           {events.map((event) => (
             <tr class="odd:bg-pgreen even:bg-pyellow">
