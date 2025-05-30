@@ -30,7 +30,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
               <th class=>Location</th>
           </thead>
           {events.map((event) => (
-            <tr class="odd:bg-pgreen even:bg-pyellow">
+            <tr class="odd:bg-pgreen even:bg-ppink">
               <td><p class="text-sm">{event.date.toDateString()}</p></td>
               <td><p class="text-sm"><a class="font-bold italic" href={event.website}>{event.name}</a></p></td>
               <td><p class="text-sm">{event.location}</p></td>
