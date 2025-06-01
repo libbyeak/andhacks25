@@ -1,7 +1,6 @@
 ---
 title: 'Can I attend &hacks?'
-description: 'Foto de <a class="underline"  href="https://unsplash.com/es/fotos/flores-rojas-azules-y-blancas-5TK1F5VfdIk">Europeana </a> en <a class="underline" href="https://unsplash.com/es/fotos/una-pintura-en-el-techo-de-un-edificio-1rBg5YSi00c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-      '
+description: "Any currect students in highschool, their undergrad, or graduate program can submit project!"
 icon: '3'
 pubDate: 'Jul 08 2022'
 heroImage: "/src/assets/euro.jpg"

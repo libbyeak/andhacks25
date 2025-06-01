@@ -1,8 +1,6 @@
 ---
 title: 'What if I dont submit a project?'
-description:  '
-        Foto de <a  class="underline" href="https://unsplash.com/es/fotos/flores-rojas-azules-y-blancas-5TK1F5VfdIk">Europeana </a> en <a  href="https://unsplash.com/es/fotos/flores-rojas-azules-y-blancas-5TK1F5VfdIk"  class="underline">Unsplash</a>
-'
+description: "That's ok! You can still finish it by yourself on your own time."
 icon: '2'
 pubDate: 'Jul 08 2022'
 heroImage: "/src/assets/fran.jpg"

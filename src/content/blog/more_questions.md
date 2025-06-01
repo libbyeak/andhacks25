@@ -1,8 +1,6 @@
 ---
 title: "What if I have more questions?"
-description:
-  'Foto de <a class="underline" href="https://unsplash.com/es/@adrigeo_?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Adrianna Geo</a> en <a href="https://unsplash.com/es/fotos/una-pintura-en-el-techo-de-un-edificio-1rBg5YSi00c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="underline">Unsplash</a>
-  '
+description: "Please reach out to us with any questions/concerns at <a href=mailto:computing@wm.edu>computing@wm.edu</a> [FINISH]"
 icon: "1"
 pubDate: "Jul 08 2022"
 heroImage: "/src/assets/adriana.jpg"

@@ -1,11 +1,9 @@
 ---
 title: "Can I go solo?"
-description:
-  'Foto de <a class="underline"href="https://unsplash.com/es/@adrigeo_?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Adrianna Geo</a> en <a class="underline" href="https://unsplash.com/es/fotos/una-pintura-en-el-techo-de-un-edificio-1rBg5YSi00c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" class="text-pgreen">Unsplash</a>
-  '
+description: "You can go solo or work in a team! Join our discord server to find a team: [FINISH]"
 icon: "2"
 pubDate: "Jul 22 2022"
-heroImage: "/src/assets/adriana.jpg"
+heroImage: ""
 ---
 
 Free revaluation sexuality spirit eternal-return. Ideal christian self aversion endless zarathustra strong burying faith gains hope value. Hatred pious derive ascetic self free marvelous. Law evil revaluation pinnacle ultimate holiest. Insofar faithful ultimate free reason. Joy burying burying truth derive hatred abstract against ubermensch value dead zarathustra insofar. Enlightenment victorious intentions battle victorious love overcome against.
