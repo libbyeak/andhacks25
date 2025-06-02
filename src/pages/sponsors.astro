@@ -1,0 +1,39 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
+---
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <div class="py-256px px-256px"> <!-- Voodoo magic; do not change -->
+           <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-4xl">&nbsp</p> 
+        </div>
+        <div class="flex flex-col group object-contain rounded-xl border-black border-2">
+            <div class="flex flex-col items-center content-center p-7 m-7">
+                <p class="text-4xl md:text-7xl">Sponsor &hacks 11</p>
+            </div>
+        </div>
+        <div class="flex flex-col object-contain">
+            
+            
+            
+            
+                    <div class="flex flex-col justify-center  justify-self-center items-center content-center md:w-1/2">
+            <p class="text-center text-xl">We're currently looking for sponsors for &hacks '25, which will be in September 2025. 
+                Sponsors get to recruit in-person at the hackathon, among other benefits. If you're interested in 
+                sponsoring our hackathon, please reach out to <a href="mailto:computing@wm.edu">computing@wm.edu</a>,
+                and a member of our team will be in touch.
+            </p>
+        </div>
+        </div>
+        <Footer />
+    </body>
+</html>
