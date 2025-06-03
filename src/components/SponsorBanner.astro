@@ -7,8 +7,9 @@ import SponsorBadge from "@/components/SponsorBadge.astro";
 const sponsors = await getCollection('sponsors');
 //console.log('SPONSORS ARE: ' + sponsors);
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/*.{jpeg,jpg,png,gif}"
+  "src/assets/*.{jpeg,jpg,png,gif}"
 );
+console.log('SPONSOR IMAGES ARE: ' + JSON.stringify(images));
 ---
 <section class=" bg-pevergreen border-2 border-black group rounded-xl m-5 p-5">
   <!-- grey so as to be least likely to conflict with sponsors' logos -->
@@ -30,7 +31,6 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
             name={s.data.name}
             tier={s.data.tier}
             src={s.data.logo}
-            alt={s.data.logoAlt}
             width={256 as number}
             height={256 as number}
           />
