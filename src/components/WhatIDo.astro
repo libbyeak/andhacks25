@@ -33,12 +33,13 @@ const getRandomClass = () => {
   <p class="text-pblack">It is necessary to observe.</p>
   <h2 class="text-4xl font-bold">Treated like a portrait.</h2>
   <ul class="flex flex-wrap justify-center md:justify-start gap-8 py-20">
+    <!--<a href={`/blog/${post.id}/`} class="flex flex-col gap-4"> # HTML comments are not allowed within code blocks, for whatever reason -->
     {
       posts.map((post) => {
         const randomClass = getRandomClass();
         return (
           <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-6 flex flex-col gap-6">
-            <a href={`/blog/${post.id}/`} class="flex flex-col gap-4">
+             <a class="flex flex-col gap-4">
               <div
                 class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
               >
