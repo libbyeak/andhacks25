@@ -23,7 +23,8 @@ const sponsors = defineCollection({
         tier: z.string(),
         name: z.string(),
         logo: image(),
-        logoAlt: z.string()
+        logoAlt: z.string(),
+        website: z.string(),
     })
 });
 
