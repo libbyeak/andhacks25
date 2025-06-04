@@ -34,13 +34,21 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
               <th class=>Event</th>
               <th class=>Location</th>
           </thead>
-          {events.map((event) => (
+          { events ? (
+          events.map((event) => (
             <tr class="odd:bg-pgreen even:bg-ppink">
               <td><p class="text-sm py-2 lg:px-5">{event.date.toDateString()}</p></td>
               <td><p class="text-sm py-2 lg:px-5"><a class="font-bold italic" href={event.website}>{event.name}</a></p></td>
               <td><p class="text-sm py-2 lg:px-5">{event.location}</p></td>
             </tr>
             ))
+          )
+          :
+          (
+            <tr class="bg-pgreen py-2 lg:px-5">
+              <td colspan="3"><p class="text-xl text-center">Could not display events at this time</p></td>
+            </tr>
+          )
           }
         </table>
         <!-- TODO: this bloody thing won't right-align, for mysterious reasons -->

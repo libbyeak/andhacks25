@@ -30,7 +30,10 @@ const now = new Date()
                     <th class="py-8">Website</th>
                 </thead>
                 <tbody>
-                    {allEvents.map(event => (
+                    {
+                    allEvents ? 
+                    (
+                    allEvents.map(event => (
                         <div class="m-0 p-0" id={event.date.getTime().toString()}> <!-- auto-navigate to anchor for the current time -->
                             <tr class="odd:bg-pgreen even:bg-pyellow">
                                 <td class="py-3">{event.date.toDateString()}</td>
@@ -40,6 +43,11 @@ const now = new Date()
                             </tr>
                         </div>
                         ))
+                    )
+                    :
+                    (
+                        <tr class="bg-pgreen"><td colspan="4"><p class="text-xl text-center py-3">Could not display events at this time</p></td></tr>
+                    )
                     }
                 </tbody>
             </table>
