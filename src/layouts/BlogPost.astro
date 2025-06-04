@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
 
 type Props = CollectionEntry<"blog">["data"];
 
-const {
+let { /* gives me the heebie-jeebies for these not to be set as const, but that allows me to change props to default values rather than throwing an error */
   title = "",
   description,
   pubDate,
@@ -29,10 +29,12 @@ const bgClasses = [
   "hover:shadow-pyellow",
 
 ];
+
 import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
-if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+//if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[heroImage]) heroImage = './andycar.png';
 
 const getRandomClass = () => {
   return bgClasses[Math.floor(Math.random() * bgClasses.length)];
