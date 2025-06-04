@@ -1,6 +1,4 @@
 import { Client } from "@notionhq/client";
-import { onPageLoad } from "astro/virtual-modules/transitions-events.js";
-import { UnhandledRejection } from "node_modules/astro/dist/core/errors/errors-data";
 
 export type ItineraryEvent = {
   date: Date;
@@ -10,7 +8,7 @@ export type ItineraryEvent = {
 };
 
 export async function getEvents(): Promise<ItineraryEvent[]> {
-  let somethingIsFuckedUp = false;
+  let somethingIsFuckedUp = false; /* flag variable to judge whether we abort the mission and return early */
   const notion = new Client({ auth: import.meta.env.NOTION_TOKEN });
   const pages = await notion.databases.query({
     database_id: import.meta.env.NOTION_DATABASE_ID,
@@ -28,11 +26,9 @@ export async function getEvents(): Promise<ItineraryEvent[]> {
       ],
     },*/
   })
-  .then(() => {
-    throw UnhandledRejection;
-  })
   .catch(err => {
-    somethingIsFuckedUp = true;
+    /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
+    somethingIsFuckedUp = true; /* 'return' won't help us here -- set a flag */ 
   });
 
   if (somethingIsFuckedUp) return false;
