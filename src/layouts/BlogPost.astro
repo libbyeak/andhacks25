@@ -18,10 +18,10 @@ let { /* gives me the heebie-jeebies for these not to be set as const, but that 
   icon,
   tags,
 } = Astro.props;
-import { getCollection } from "astro:content";
+/*import { getCollection } from "astro:content";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+);*/
 const bgClasses = [
   "hover:shadow-ppinkHover",
   "hover:shadow-pgreenHover",
@@ -34,7 +34,7 @@ import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/*.{jpeg,jpg,png,gif}')
 //if (!images[heroImage]) throw new Error(`"${heroImage}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
-if (!images[heroImage]) heroImage = './andycar.png';
+if (!images[heroImage]) heroImage = './andycar.png'; /* if the image doesn't exist, give a default value rather than throwing an error */
 
 const getRandomClass = () => {
   return bgClasses[Math.floor(Math.random() * bgClasses.length)];
@@ -47,6 +47,11 @@ const getRandomClass = () => {
   </head>
   <body>
     <Header />
+    <div class="py-256px px-256px"> <!-- Voodoo magic; do not change -->
+           <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-4xl">&nbsp</p> 
+    </div>
     <main class="container mx-auto md:px-10 text-white">
       <article >
         <div class="relative mb-20" transition:animate="fade">
@@ -82,7 +87,7 @@ const getRandomClass = () => {
               <slot />
             </div>
             <div class="flex flex-col gap-6" transition:animate="slide">
-              <ul class="flex flex-col gap-2 pt-10 md:pt-0 items-start md:items-end">
+              <!-- <ul class="flex flex-col gap-2 pt-10 md:pt-0 items-start md:items-end">
                 <p class="md:hidden font-semibold">Related:</p>
                 {
                   posts.map((post) => {
@@ -97,7 +102,7 @@ const getRandomClass = () => {
                     );
                   })
                 }
-              </ul>
+              </ul>-->
               <hr />
               <!--TODO: Change this to have names of Andhacks people -->
               <p>Written by</p>
