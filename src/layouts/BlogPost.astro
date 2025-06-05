@@ -18,10 +18,12 @@ let { /* gives me the heebie-jeebies for these not to be set as const, but that 
   icon,
   tags,
 } = Astro.props;
+
 /*import { getCollection } from "astro:content";
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );*/
+
 const bgClasses = [
   "hover:shadow-ppinkHover",
   "hover:shadow-pgreenHover",
