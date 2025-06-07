@@ -40,7 +40,8 @@ export async function getEvents(): Promise<ItineraryEvent[]> {
       date: new Date(page.properties.Date.date.start),
       name: page.properties.Name.title[0].text.content, /* VSCode complains that page.properties doesn't exist, but empirically it seems to work right*/
       location: page.properties.Location.rich_text[0].plain_text,
-      website: page.properties.Website.url,
+      /* this is a URL, not a page on our server; make sure links handle that correctly */
+      website: (page.properties.Website.url.slice(0,3) == 'http') ? page.properties.Website.url : ('http://' + page.properties.Website.url), 
     };
   })
   .sort((a, b) => a.date.getTime() - b.date.getTime())
