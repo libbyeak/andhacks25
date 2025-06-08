@@ -2,8 +2,6 @@
 title: 'When can I start my project?'
 description: "You can start your project... [FINISH]"
 icon: "4"
-pubDate: 'Jul 15 2022'
-heroImage: "/src/assets/fran.jpg"
 ---
 Madness enlightenment mountains passion strong strong virtues chaos ascetic chaos mountains ascetic passion enlightenment. Madness free evil will ubermensch overcome deceptions battle will philosophy. Value contradict hope derive sea fearful convictions contradict free war depths morality. Prejudice horror aversion morality madness philosophy.
 

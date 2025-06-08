@@ -2,8 +2,6 @@
 title: "What is a hackathon?"
 description: "A hackathon is a free, weekend-long tech event where students from all different places and majors come and build projects, their resume, etc... [FINISH]"
 icon: "3"
-pubDate: "Jun 19 2024"
-heroImage: "/src/assets/adriana.jpg"
 ---
 
 # Title 1
