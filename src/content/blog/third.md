@@ -4,8 +4,6 @@ description:
   'Foto de <a class="underline" href="https://unsplash.com/es/@adrigeo_?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" >Adrianna Geo</a> en <a class="underline" href="https://unsplash.com/es/fotos/una-pintura-en-el-techo-de-un-edificio-1rBg5YSi00c?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   '
 icon: "1"
-pubDate: "Jul 08 2022"
-heroImage: "/src/assets/fran.jpg"
 ---
 
 Ultimate enlightenment pinnacle ocean sea against grandeur. Strong mountains salvation joy self disgust war depths victorious hope mountains ultimate philosophy war. Decieve christian dead decieve selfish grandeur ocean society prejudice truth spirit disgust.

@@ -1,9 +1,7 @@
 ---
 /* This is the widget that has all the tiles.*/
 import { getCollection } from "astro:content";
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = (await getCollection("blog"));
 import FormattedDate from "@/components/FormattedDate.astro";
 import { Icon } from "astro-icon/components";
 
@@ -47,7 +45,6 @@ const getRandomClass = () => {
               </div>
               <h4 class="text-xl font-semibold">{post.data.title}</h4>
               <p class="date -mt-4 text-sm font-light">
-                <FormattedDate date={post.data.pubDate} />
               </p>
             </a>
             <div set:html={post.data.description} />
