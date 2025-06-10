@@ -45,7 +45,6 @@ const getRandomClass = () => {
 
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
   </head>
   <body>
     <Header />
@@ -71,7 +70,6 @@ const getRandomClass = () => {
         <div class="text-black px-6 md:px-0">
           <div class="">
             <div class="text-sm text-pblack flex items-center justify-between">
-              <FormattedDate date={pubDate} />
               {
                 updatedDate && (
                   <div class="last-updated-on">
@@ -119,30 +117,6 @@ const getRandomClass = () => {
               </div>
               <hr/>
               <div>
-                <p>Contributors:</p>
-                <div class="flex items-center gap-6 text-xl">
-                  <a
-                    href="https://jramma.com"
-                    target="_blank"
-                    class="py-1 pl-3 rounded-md border-1 border-black bg-ppink shadow-card hover:shadow-hover transition"
-                  >
-                    <Icon name="web" />
-                  </a>
-                  <a
-                    href="https://github.com/jramma"
-                    target="_blank"
-                    class="border-1 p-1 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
-                  >
-                    <Icon name="github" />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/jramma/"
-                    target="_blank"
-                    class="border-1 p-1 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
-                  >
-                    <Icon name="linkedin" />
-                  </a>
-                </div>
               </div>
             </div>
           </div>Add commentMore actions
