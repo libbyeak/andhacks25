@@ -3,6 +3,7 @@ import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
+import ErrorHeader from "@/components/ErrorHeader.astro";
 ---
 <!doctype html>
 <html>
@@ -16,7 +17,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
             <p class="text-7xl"> &nbsp &nbsp</p>
             <p class="text-4xl">&nbsp</p> 
         </div>
-        <p class="text-7xl">No such page exists</p>
+        <main class="container mx-auto md:px-10">
+            <ErrorHeader /
+                code="404"
+                title="Page not found"
+                subtitle="That URL doesn't exist on the &hacks site"
+            >      
+        </main>
         <Footer />
     </body>
 </html>

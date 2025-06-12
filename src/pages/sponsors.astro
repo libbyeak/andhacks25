@@ -2,8 +2,12 @@
 import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import { Image } from "astro:assets";
 import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
 import SponsorTableImage from "@/assets/img_3476.jpg"; /* apparently this doesn't work if the file name is uppercase? seriously? */
+import { getCollection } from "astro:content";
+import SponsorBadge from "@/components/SponsorBadge.astro";
+const sponsors = await getCollection('sponsors');
 ---
 <!doctype html>
 <html lang="en">
@@ -25,13 +29,18 @@ import SponsorTableImage from "@/assets/img_3476.jpg"; /* apparently this doesn'
         <!-- Presumably there are right things to say here, but I don't know what those things are
             This is the best I could think of  
         -->
-        <div class="flex flex-col object-contain">
-            <div class="flex flex-col justify-center  justify-self-center items-center content-center p-10 m-10">
-                <p class="text-center text-2xl lg:w-1/2">We're currently looking for sponsors for &hacks '25, which will be in September 2025. 
+        <div class="flex flex-row object-contain">
+            <div class="flex flex-col justify-center  justify-self-center items-center content-center w-1/2 p-10 m-10">
+                <p class="text-center text-2xl lg:w-7/8">We're currently looking for sponsors for &hacks '25, which will be in September 2025. 
                     Sponsors get to recruit in-person at the hackathon, among other benefits. If you're interested in 
                     sponsoring our hackathon, please reach out to <a class="text-blue-900 underline" href="mailto:computing@wm.edu">computing@wm.edu</a>,
                     and a member of our team will be in touch.
                 </p>
+            </div>
+            <div class="flex flex-col justify-end w-1/2 p-10 m-10">
+                <div class="p-8 border-6 border-black rounded-xl">
+                    <Image class="shadow rounded-xl" src={SponsorTableImage} alt="Sponsors tabling at &hacks X" />
+                </div>
             </div>
         </div>
         <div class="flex flex-row min-w-full object-contain group justify-center items-center content-center">
@@ -51,6 +60,21 @@ import SponsorTableImage from "@/assets/img_3476.jpg"; /* apparently this doesn'
                 <p class="text-7xl">30+</p>
                 <p class="text-xl">Projects</p>
             </div>
+            </div>
+            <div class="flex justify-center p-10 m-10">
+                <ul class="grid auto-rows-fr grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                    { sponsors.map((s => (
+                        <li class="grid">
+                            <SponsorBadge
+                                name={s.data.name}
+                                tier={s.data.tier}
+                                src={s.data.logo}
+                                website={s.data.website}
+                                color="bg-amber-300"
+                                />
+                        </li>
+                    )))}
+                </ul>
             </div>
         <Footer />
     </body>

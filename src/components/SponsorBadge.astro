@@ -7,12 +7,13 @@ export interface Props {
     tier: string;
     src: ImageMetadata;
     website: string;
+    color: string;
 }
 
-const {name, tier, src, website} = Astro.props;
+const {name, tier, src, website, color} = Astro.props;
 const images = import.meta.glob<{default: ImageMetadata}>('../assets/sponsors/*.{svg,png}')
 ---
-<div class="flex flex-col p-2 m-2 border-1 bg-pgreen border-black rounded-xl justify-center items-center">
+<div class:list={["flex flex-col p-2 m-2 border-1 border-black rounded-xl justify-center items-center", color]}>
     <a href={website} target="_blank">
         <Picture src={src} alt="lorem ipsum dolor sit amet" class="brightness-0" />
     </a>

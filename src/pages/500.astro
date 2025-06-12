@@ -3,6 +3,7 @@ import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
+import ErrorHeader from "@/components/ErrorHeader.astro";
 ---
 <!doctype html>
 <html>
@@ -16,7 +17,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "src/consts";
             <p class="text-7xl"> &nbsp &nbsp</p>
             <p class="text-4xl">&nbsp</p> 
         </div>
-        <p class="text-7xl">Internal server error</p>
+        <main class="container mx-auto md:px-10">
+            <ErrorHeader /
+                code="500"
+                title="Internal server error"
+                subtitle="Something went wrong on our end. Please refresh the page, or try again later"
+            >      
+        </main>
         <Footer />
     </body>
 </html>
