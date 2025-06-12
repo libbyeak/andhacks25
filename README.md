@@ -45,8 +45,8 @@ This site features a Notion integration, and all itinerary events are filled in 
 
 1. In Notion, go into settings > Connections > "Develop or Manage Integrations" > "New Integration"
 Create a file in the project's root folder (named "andhacks25") called `.env` with two variables in it: 
-        a. Add a name; this isn't publicly visible and can be whatever
-        b. You can set type as "Internal." I think creating a public integration involves red tape and hoops to jump through with the Notion bureaucracy. 
+        - a. Add a name; this isn't publicly visible and can be whatever
+        - b. You can set type as "Internal." I think creating a public integration involves red tape and hoops to jump through with the Notion bureaucracy. 
 
 2. Click "Configure Integration Settings," then "show" next the internal integration secret.
 3. Copy that into `.env` for the value of `NOTION_TOKEN`.
