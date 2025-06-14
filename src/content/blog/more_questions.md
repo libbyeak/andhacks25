@@ -1,8 +1,7 @@
 ---
-title: "What if I have more questions?"
-description: "Please reach out to us with any questions/concerns at <a href=mailto:computing@wm.edu>computing@wm.edu</a> [FINISH]"
-icon: "3"
+title: "Can I go solo? "
+description: "You can go solo or work in a team! Join our discord server to find a team: [DISCORD]"
 ---
 
-This example is from https://markdown-it.github.io/
+This example is from
 
