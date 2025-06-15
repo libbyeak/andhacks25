@@ -8,10 +8,10 @@ import { Icon } from "astro-icon/components";
 let getRandomClassIndex = -1; /* this seems like the easiest shim for function-level static variables in TS */
 
 const bgClasses = [
-  "bg-pgreen rounded-full",
-  "bg-pblue rounded-2xl",
-  "bg-ppink ",
-  "bg-pyellow rounded-md",
+  "bg-pgreen w-64 h-15 rounded-xl",
+  "bg-pblue w-64 h-15 rounded-xl",
+  "bg-ppink w-64 h-15 rounded-xl",
+  "bg-pyellow w-64 h-15 rounded-xl",
 ];
 
 const getRandomClass = () => {
@@ -29,21 +29,19 @@ const getRandomClass = () => {
 
 <section class="flex flex-col text-center gap-4 " id="faq-panel">
   <p class="text-pblack">Got questions?</p>
-  <h2 class="text-4xl font-bold">FAQs</h2>
-  <ul class="flex flex-wrap justify-center md:justify-start gap-8 py-20">
+  <h2 class="text-8xl font-bold">FAQs</h2>
+  <ul class="flex flex-wrap justify-center gap-4 py-10">
     <!--<a href={`/blog/${post.id}/`} class="flex flex-col gap-4"> # HTML comments are not allowed within code blocks, for whatever reason -->
     {
       posts.map((post) => {
         const randomClass = getRandomClass();
         return (
-          <li class="w-72 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-6 flex flex-col gap-6">
+          <li class="w-80 h-25 text-left rounded-3xl border-1 border-black shadow-card group hover:shadow-hover transition  px-4 py-6 flex flex-col gap-6">
              <a class="flex flex-col gap-4">
               <div
-                class={`${randomClass} text-4xl p-2 self-start border-1 border-black shadow-card1 group-hover:shadow-card transition`}
-              >
-                <Icon name={post.data.icon} />
+                class={`inline-block text-xl font-semibold px-2 py-1 border border-black shadow-card1 group-hover:shadow-card transition ${randomClass}`}>
+                {post.data.title}
               </div>
-              <h4 class="text-xl font-semibold">{post.data.title}</h4>
               <p class="date -mt-4 text-sm font-light">
               </p>
             </a>
