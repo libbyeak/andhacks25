@@ -1,9 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
+import AmpersandChallengeImage from "@/assets/ampersand challenge.jpg";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}"
 );
+
 ---
 
 <section class="py-20 flex md:flex-row flex-col px-4 md:px-0 gap-10 md:gap-0">
@@ -22,8 +24,8 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
       Register today!
     </a>
   </div>
-  
   <div class="flex flex-col gap-6 justify-start items-start md:w-1/2">
-    <p class="text-6xl font-bold">HEADER AREA</p>
+    <!-- <p class="text-6xl font-bold">HEADER AREA</p>-->
+    <Image src={AmpersandChallengeImage} alt="Ampersand Challenge at &hacks" class="object-cover rounded-xl" />
   </div>
 </section>

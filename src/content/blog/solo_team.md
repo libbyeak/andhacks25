@@ -1,6 +1,6 @@
 ---
-title: "What if I dont submit a project?"
-description: "That's ok! You can still finish it by yourself on your own time."
+title: "What if I don't submit a project?"
+description: "That's OK! You can still finish it by yourself on your own time after &hacks concludes."
 ---
 
 Free revaluation sexuality spirit 

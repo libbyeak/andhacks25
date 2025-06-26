@@ -1,6 +1,6 @@
 ---
 title: "Can I attend &hacks?"
-description: "Any current students in highschool, their undergrad, or graduate program can submit project!"
+description: "Any current undergraduate, graduate, or high school students are invited to submit projects! Please note for highschoolers that we are unable to chaperone minors."
 ---
 
 # Title 1
