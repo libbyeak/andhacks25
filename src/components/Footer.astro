@@ -2,8 +2,9 @@
 const today = new Date();
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import instagram from "@/assets/instagram.svg"
-import discord from "@/assets/discord.svg"
+import instagram from "@/assets/instagramlogo.svg"
+import discord from "@/assets/discordlogo.svg"
+import devpost from "@/assets/devpostlogo.svg"
 
 ---
 
@@ -25,14 +26,14 @@ import discord from "@/assets/discord.svg"
       target="_blank"
       class="border-1 p-1 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
     >
-      <Icon name="web" />
+      <Image src={discord} alt="" />
     </a>
     <a
       href="https://discord.gg/hCyxsqWePS"
       target="_blank"
       class="border-1 p-1 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
     >
-      <Image src={discord} alt="" />
+      <Image src={devpost} alt="" />
     </a>
   </div>
   <a
