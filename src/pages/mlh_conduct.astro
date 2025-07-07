@@ -4,3 +4,14 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
 ---
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <iframe src="https://github.com/MLH/mlh-policies/blob/main/code-of-conduct.md"
+        width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">
+    </iframe>
+    </body>
+</html>

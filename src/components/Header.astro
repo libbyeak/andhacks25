@@ -5,7 +5,7 @@ import "../styles/hamburgers.css";
 ---
 <header>
   <nav
-    class="flex container fixed min-w-full z-20 top-0 start-0 mx-auto md:p-10 px-4 py-6 items-center justify-between bg-white opacity-90">
+    class="flex container fixed min-w-full z-20 top-0 start-0 mx-auto md:p-10 px-4 py-6 pr-40 items-center justify-between bg-white opacity-90">
     <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=blue" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-blue.svg" alt="Major League Hacking 2026 Hackathon Season" style="width:100%"></a>
     <a class="flex items-center gap-2" href="/">
       <!--<p class="font-kablamo text-ppink text-4xl md:text-5xl">S</p> I thought this asset was an image but apparently it's text? -->
@@ -13,7 +13,7 @@ import "../styles/hamburgers.css";
       <p class="pt-2 md:text-5xl font-semibold flex">&hacks XI</p>
     </a>
     <ul class="items-center md:gap-8 text-nowrap hidden md:flex">
-      <span class="flex flex-col lg:flex-row justify-center items-center lg:justify-start lg:items-start"> <!-- go to two rows if the screen is narrow enough -->
+      <span class="flex flex-col lg:flex-row justify-center items-center lg:justify-start lg:items-start mr-30"> <!-- go to two rows if the screen is narrow enough -->
       <span class="flex flex-row gap-0 p-0 m-0">
       <li><Link href="/" text="Home" style="primary" /></li>
       <li><Link href="/registration" text="Register" style="secondary" /></li>
@@ -21,6 +21,7 @@ import "../styles/hamburgers.css";
       <span class="flex flex-row gap-0 p-0 m-0 pr-5">
       <li><Link href="/sponsors" text="For Sponsors" style="secondary" /></li>
       <li><Link href="/#faq-panel" text="FAQs" style="secondary" /></li>
+      <li><Link href="/mlh_conduct" text="MLH Code" style="secondary"></li>
       <li><Link href="mailto:computing@wm.edu?subject=%38hacks" text="Contact" style="secondary" /></li>
       </span>
       </span>
@@ -36,8 +37,8 @@ import "../styles/hamburgers.css";
           <li><Link href="/" text="Home" style="primary" /></li>
           <li><Link href="/registration" text="Register" style="secondary" /></li>
           <li><Link href="/sponsors" text="For Sponsors" style="secondary" /></li>
-          <li><Link href="/mlh_conduct" text="MLH Code" style="secondary"></li>
           <li><Link href="/#faq-panel" text="FAQs" style="secondary" /></li>
+          <li><Link href="/mlh_conduct" text="MLH Code" style="secondary"></li>
           <li><Link href="mailto:computing@wm.edu?subject=%38hacks" text="Contact" style="secondary" /></li>
         </ul>
       </div>
