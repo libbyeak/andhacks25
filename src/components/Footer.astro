@@ -2,7 +2,7 @@
 const today = new Date();
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import instagram from "@/assets/instagramlogo.svg"
+import instagram from "@/assets/instagram.svg"
 import discord from "@/assets/discordlogo.svg"
 import devpost from "@/assets/devpostlogo.svg"
 
@@ -18,7 +18,7 @@ import devpost from "@/assets/devpostlogo.svg"
       target="_blank"
       class="border-1 p-1 border-black rounded-full bg-ppink shadow-card hover:shadow-hover transition"
     >
-      <Image src={instagram} alt="" />
+      <Image width="75" height="75" src={instagram} alt="" />
       
     </a>
     <a
@@ -33,8 +33,8 @@ import devpost from "@/assets/devpostlogo.svg"
       target="_blank"
       class="border-1 p-1 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
     >
-      <Image src={devpost} alt="" />
-    </a>
+    <Image class="p-10px m-10px" width="75" height="75" src={devpost} alt="" />
+  </a>
   </div>
   <a
     href="/registration"
