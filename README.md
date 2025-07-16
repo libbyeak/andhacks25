@@ -63,8 +63,3 @@ Create a file in the project's root folder (named "andhacks25") called `.env` wi
 - Blank fields in a Notion database will display as "TBA"
 
 - If you change the spreadsheet's column names/types in Notion, you will need to update the schema in notion.ts. See that file for details of how to do that.
-
-## The Backend: particulars of Firebase
-
-Reach out to me at +1 (571) 547-9515 to be added to the &hacks XI Firebase project.
-
