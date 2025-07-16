@@ -9,6 +9,7 @@ This is the source code for the Astro website used to publicize &hacks XI, W&M's
 3. Run `pnpm run dev` to serve the development site
 
 - See the Notion section for information on how to set up that integration.
+- See the Firebase section for particulars on that.
 
 ### Deployment
 
@@ -37,7 +38,7 @@ Adding FAQs is exactly the same process as above. Create a file in the `src/cont
 
 - `title`: The question.
 - `description`: The answer to said question.
-- As far as I can tell, `icon`, `pubDate`, `updatedDate`, `heroImage`, and `tags` are leftovers from the Astro template and are not currently used for anything.
+- As far as I can tell, `icon`, `pubDate`, `updatedDate`, `heroImage`, and `tags` are leftovers from the Astro template and don't change anything on the displayed website.
 
 ### Schedule Events: Setting up the Notion integration
 
@@ -46,7 +47,8 @@ This site features a Notion integration, and all itinerary events are filled in 
 1. In Notion, go into settings > Connections > "Develop or Manage Integrations" > "New Integration"
 Create a file in the project's root folder (named "andhacks25") called `.env` with two variables in it: 
         - a. Add a name; this isn't publicly visible and can be whatever
-        - b. You can set type as "Internal." I think creating a public integration involves red tape and hoops to jump through with the Notion bureaucracy. 
+
+        - b. You can set type as "Internal." I think creating a public integration involves red tape and hoops to jump through with the Notion bureaucracy. You don't need to bother with that.
 
 2. Click "Configure Integration Settings," then "show" next the internal integration secret.
 3. Copy that into `.env` for the value of `NOTION_TOKEN`.
@@ -55,4 +57,14 @@ Create a file in the project's root folder (named "andhacks25") called `.env` wi
 
 - `NOTION_TOKEN`: the API token for the Notion integration. This will look like "ntn-" followed by an insanely long hexadecimal number.
 - `NOTION_DATABASE_ID`: The ID of the Notion DB from which to fetch events. This will just be an insanely long hexadecimal number.
+
+#### Notes on the Notion integration: 
+
+- Blank fields in a Notion database will display as "TBA"
+
+- If you change the spreadsheet's column names/types in Notion, you will need to update the schema in notion.ts. See that file for details of how to do that.
+
+## The Backend: particulars of Firebase
+
+Reach out to me at +1 (571) 547-9515 to be added to the &hacks XI Firebase project.
 

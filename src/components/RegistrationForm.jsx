@@ -90,7 +90,7 @@ function RegistrationForm() {
 
       console.log('Document written with ID: ', docRef.id);
       // Optionally, reset the form after submission
-      setInputData({ name: '', email: '' });
+      setInputData({ name: '', age: '', role: '', school: '' });
     } catch (e) {
       console.error('Error adding document: ', e);
     }
@@ -100,6 +100,7 @@ function RegistrationForm() {
   return (
     /* TODO: There are two states: logged in, and not logged in. There should be three: those two, plus "loading" */
     auth.currentUser ? 
+    /* authenticated */
     (
     <div class="flex flex-col">
       <div class="bg-pgreen rounded-xl border-2 border-black">
@@ -153,6 +154,7 @@ function RegistrationForm() {
     </div>
     )
     :
+    /* Not authenticated */
     (
       <div class="flex flex-col justify-center justify-self-center items-center content-center">
         <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
