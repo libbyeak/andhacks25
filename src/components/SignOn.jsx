@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { initializeApp } from 'firebase/app';
+//import { initializeApp } from 'firebase/app';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -7,19 +7,38 @@ import {
   onAuthStateChanged,
   signOut
 } from 'firebase/auth';
-
-import { auth } from "../scripts/firebase";
+import { collection, query, where, getDocs } from "firebase/firestore";
+import { db, auth } from "../scripts/firebase";
 
 function SignOn() {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLogin, setIsLogin] = useState(true); // Toggle between login/register
-
+  let infoAbtUser = null;
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (auth.currentUser) {
+        const q = query(collection(db, 'registrants-tmp'), where('email', '==', auth.currentUser.email));
+        getDocs(q)
+        .then(querySnapshot => {
+            console.log('successfully retrieved firestore data');
+            querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+            infoAbtUser = doc;
+            });
+        })
+        .catch(e => {
+          alert(e);
+        })
+      }
+      else {
+        console.log('no user exists');
+      }
     });
+    
     return () => unsubscribe();
   }, []);
 
@@ -47,7 +66,9 @@ function SignOn() {
 
     <div>
       <div><p class="text-4xl underline mb-20"><strong>Sign in or Create Account</strong></p></div>
-      {user ? (
+      {user ? 
+      /* greet the authenticated user */
+      (
         <>
           <div class="flex flex-col justify-center justify-self-center items-center">
             <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
@@ -57,7 +78,9 @@ function SignOn() {
             </div>
           </div>
         </>
-      ) : (
+      ) : 
+      /* as no user is logged in, present the sign-in page */
+      (
         <div class="flex flex-col justify-center items-center content-center">
         <form onSubmit={handleSubmit}>
           <div class="flex flex-col justify-center items-center content-center bg-pgreen rounded-xl border-black border-2">

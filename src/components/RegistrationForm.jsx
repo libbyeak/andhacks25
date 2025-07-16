@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { db, auth } from '../scripts/firebase'; // Import your Firestore instance from Firebase config
 import { collection, addDoc } from 'firebase/firestore';
-import { updateCurrentUser } from 'firebase/auth';
 
 /* On the existence of separate "name" and "title" fields: "title" is the name I'm confident looks good to the user. "Name"
  * is the name I'm confident could be used as a variable name down the line without causing Unicode problems or whatever */
-var userExists = false;
+//var userExists = false;
 
 const formLayout = {
     "items": [
@@ -57,7 +56,7 @@ function RegistrationForm() {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
-      userExists = !userExists;
+      //userExists = !userExists;
     })
   });
 
@@ -82,6 +81,7 @@ function RegistrationForm() {
       // Add form data to Firestore
       const docRef = await addDoc(collection(db, 'registrants-tmp'), {
         name: inputData.name,
+        email: auth.currentUser.email,
         age: inputData.age,
         role: inputData.role,
         school: inputData.school,
@@ -93,7 +93,11 @@ function RegistrationForm() {
       setInputData({ name: '', age: '', role: '', school: '' });
     } catch (e) {
       console.error('Error adding document: ', e);
+      alert("Couldn't submit your form, for reason " + e + 
+        "Please report this error to computing@wm.edu"
+      );
     }
+    window.location.href = '/authentication'; /* send the user along */
   };
           
 
@@ -108,7 +112,7 @@ function RegistrationForm() {
           <div class="flex flex-col lg:w-2/3 justify-center items-end">
             <p>
               <label for="email">Account Email</label>
-              <input class="p-2 m-5 rounded-xl border-1 border-black" type="text" name="email" value={auth.currentUser ? auth.currentUser.email : ""} readonly/>
+              <input class="p-2 m-5 rounded-xl border-1 border-black" type="text" name="email" id="email" value={auth.currentUser ? auth.currentUser.email : ""} readonly/>
             </p>
             {formLayout.items.map((i) => (
                 ((i.type == "text" || i.type == "number") ? (
