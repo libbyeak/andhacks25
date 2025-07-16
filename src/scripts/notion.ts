@@ -37,14 +37,21 @@ export async function getEvents(): Promise<ItineraryEvent[]> {
   .map((page) => {
     return {
       id: page,
-      date: new Date(page.properties.Date.date.start),
-      name: page.properties.Name.title[0].text.content, /* VSCode complains that page.properties doesn't exist, but empirically it seems to work right*/
-      location: page.properties.Location.rich_text[0].plain_text,
+      date: page.properties.Date.date ? new Date(page.properties.Date.date.start).toDateString() : "Date and time TBA",
+      name: page.properties.Name.title[0] ? page.properties.Name.title[0].text.content : "TBA", /* VSCode complains that page.properties doesn't exist, but empirically it seems to work right*/
+      location: page.properties.Location.rich_text[0] ? page.properties.Location.rich_text[0].plain_text : "Location TBA",
       /* this is a URL, not a page on our server; make sure links handle that correctly */
-      website: (page.properties.Website.url.slice(0,3) == 'http') ? page.properties.Website.url : ('http://' + page.properties.Website.url), 
+      website: page.properties.Website.url ? ((page.properties.Website.url.slice(0,3) == 'http') ? page.properties.Website.url : ('http://' + page.properties.Website.url)) : "", 
     };
   })
-  .sort((a, b) => a.date.getTime() - b.date.getTime())
+  .sort((a, b) => {
+    try {
+    if (a != undefined && b!= undefined) a.date.getTime() - b.date.getTime()
+    }
+    catch {
+      return -1;
+    }
+  });
   //.splice(0, 5);
   
   return events;
