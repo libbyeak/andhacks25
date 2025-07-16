@@ -8,7 +8,7 @@ import {
   signOut
 } from 'firebase/auth';
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { db, auth } from "../scripts/firebase";
+import { db, auth } from "src/scripts/firebase";
 
 function SignOn() {
   const [user, setUser] = useState(null);

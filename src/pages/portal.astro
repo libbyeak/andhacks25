@@ -1,8 +1,8 @@
 ---
-import BaseHead from "@/components/BaseHead.astro"
-import Header from "@/components/Header.astro"
-import Footer from "@/components/Footer.astro"
-import RegistrationForm from "@/components/portal/RegistrationForm"
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import PortalMain from "@/components/portal/PortalMain";
 ---
 <html>
     <head>
@@ -10,13 +10,13 @@ import RegistrationForm from "@/components/portal/RegistrationForm"
     </head>
     <body>
         <Header />
-        <main class="container mx-auto md:px-10">
         <div class="py-256px px-256px"> <!-- Voodoo magic; do not change -->
            <p class="text-7xl"> &nbsp &nbsp</p>
             <p class="text-7xl"> &nbsp &nbsp</p>
             <p class="text-4xl">&nbsp</p> 
         </div>
-        <RegistrationForm client:load />
+        <main class="container mx-auto md:px-10">
+        <PortalMain client:load/>
         </main>
         <Footer />
     </body>

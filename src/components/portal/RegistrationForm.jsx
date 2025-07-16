@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { db, auth } from '../scripts/firebase'; // Import your Firestore instance from Firebase config
+import { db, auth } from 'src/scripts/firebase'; // Import your Firestore instance from Firebase config
 import { collection, addDoc } from 'firebase/firestore';
 
 /* On the existence of separate "name" and "title" fields: "title" is the name I'm confident looks good to the user. "Name"
