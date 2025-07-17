@@ -56,8 +56,8 @@ function RegistrationForm() {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       /* see note in SignOn.jsx */
-      setAuthenticationDidLoad(true);
       setUser(user);
+      setAuthenticationDidLoad(true);
     })
   });
 

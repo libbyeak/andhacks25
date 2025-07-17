@@ -26,21 +26,23 @@ function SignOn() {
        * which in turn means that the authentication state is final: if no user exists, certainly no one
        * is logged in.
        */
-      setAuthenticationDidLoad(true);
       setUser(currentUser);
       if (auth.currentUser) {
         const q = query(collection(db, REGISTRANTS_COLLECTION_NAME), where('email', '==', auth.currentUser.email));
         getDocs(q)
         .then(querySnapshot => {
-            console.log('successfully retrieved firestore data');
-            querySnapshot.forEach((doc) => {
+          console.log('successfully retrieved firestore data');
+          querySnapshot.forEach((doc) => {
             // doc.data() is never undefined for query doc snapshots
             console.log(doc.id, " => ", doc.data());
             setUserInfo(doc.data());
-            });
+          });
         })
         .catch(e => {
           alert(e);
+        })
+        .finally(() => {
+          setAuthenticationDidLoad(true);
         })
       }
       else {

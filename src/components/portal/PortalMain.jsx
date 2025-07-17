@@ -11,7 +11,6 @@ function PortalMain() {
     const [authenticationDidLoad, setAuthenticationDidLoad] = useState(false);
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            setAuthenticationDidLoad (true);
             setUser(currentUser);
             if (auth.currentUser) {
                 const q = query(collection(db, 'registrants-tmp'), where('email', '==', auth.currentUser.email));
@@ -19,13 +18,16 @@ function PortalMain() {
                 .then(querySnapshot => {
                     console.log('successfully retrieved firestore data');
                     querySnapshot.forEach((doc) => {
-                    // doc.data() is never undefined for query doc snapshots
-                    console.log(doc.id, " => ", doc.data());
-                    setInfo(doc.data());
+                        // doc.data() is never undefined for query doc snapshots
+                        console.log(doc.id, " => ", doc.data());
+                        setInfo(doc.data());
                     });
                 })
                 .catch(e => {
-                alert(e);
+                    alert(e);
+                })
+                .finally(() => {
+                    setAuthenticationDidLoad (true);
                 })
             }
             else {
