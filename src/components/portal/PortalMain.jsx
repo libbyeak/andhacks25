@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { db, auth } from "src/scripts/firebase.js";
 import { collection, query, where, getDocs } from "firebase/firestore";
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut } from 'firebase/auth';
 import LoadingBanner from './LoadingBanner';
 import { GOOGLE_MAPS_ISC_URL } from 'src/consts';
 
@@ -64,6 +64,7 @@ function PortalMain() {
                             </>
                         )
                         }
+                        <button class="rounded-xl shadow-card hover:shadow-hover transition bg-amber-300" onClick={() => {signOut(auth)}}>Sign Out</button>
                         </>
                     )  
                     :
