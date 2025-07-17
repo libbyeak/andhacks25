@@ -65,8 +65,8 @@ function SignOn() {
       if (error.code.includes('already-in-use')) {
         alert('That email already exists in our system');
       }
-      else {
-        alert(e.code);
+      else if (error.code.includes('invalid-credential')) {
+        alert('Invalid credentials. Please check the username and/or password that you entered.');
       }
     }
   };
