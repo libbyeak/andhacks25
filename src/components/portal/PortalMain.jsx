@@ -26,14 +26,12 @@ function PortalMain() {
                 .catch(e => {
                     alert(e);
                 })
-                .finally(() => {
-                    setAuthenticationDidLoad (true);
-                })
             }
             else {
                 console.log('no user exists');
             }
             });
+            setAuthenticationDidLoad(true);
             return () => unsubscribe();
         }, []);
     if (authenticationDidLoad) {

@@ -104,7 +104,7 @@ function RegistrationForm() {
 
   if (authenticationDidLoad) {
     return (
-      /* TODO: There are two states: logged in, and not logged in. There should be three: those two, plus "loading" */
+      /* TODO: There are two states: logged in, and not logged in. There should be three: those two, plus "loading" -- fixed 7/17/25 */
       <>
       {auth.currentUser ? 
       /* authenticated */
@@ -173,7 +173,7 @@ function RegistrationForm() {
         <div class="flex flex-col justify-center justify-self-center items-center content-center">
           <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
             <p class="text-3xl lg:text-5xl text-center p-5 m-5">To view this page, you need an &hacks XI account.</p>
-            <p class="text-3lx lg:text-5xl text-center p-5 m-5"><a class="underline text-blue-500" href="/authentication">Sign in to yours or create one here</a></p>
+            <p class="text-3xl lg:text-5xl text-center p-5 m-5"><a class="underline text-blue-500" href="/authentication">Sign in to yours or create one here</a></p>
           </div>
         </div>
       )

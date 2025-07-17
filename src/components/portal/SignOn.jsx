@@ -41,13 +41,11 @@ function SignOn() {
         .catch(e => {
           alert(e);
         })
-        .finally(() => {
-          setAuthenticationDidLoad(true);
-        })
       }
       else {
         console.log('no user exists');
       }
+      setAuthenticationDidLoad(true);
     });
     
     return () => unsubscribe();
@@ -66,6 +64,9 @@ function SignOn() {
     catch (error) {
       if (error.code.includes('already-in-use')) {
         alert('That email already exists in our system');
+      }
+      else {
+        alert(e.code);
       }
     }
   };
