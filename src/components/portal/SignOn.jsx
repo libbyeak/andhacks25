@@ -41,11 +41,14 @@ function SignOn() {
         .catch(e => {
           alert(e);
         })
+        .finally(() => {
+          setAuthenticationDidLoad(true); /* called in both if and else blocks rather than after the if, because async */
+        })
       }
       else {
         console.log('no user exists');
+        setAuthenticationDidLoad(true);
       }
-      setAuthenticationDidLoad(true);
     });
     
     return () => unsubscribe();
@@ -83,13 +86,11 @@ function SignOn() {
       /* greet the authenticated user */
       (
         <>
-          <div class="flex flex-col justify-center justify-self-center items-center">
-            <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
+          <div class="flex flex-col justify-self-center justify-center items-center content-center bg-pgreen rounded-xl border-black border-2">
               <p class="text-4xl p-5 m-5 mb-16">Welcome, {user.email}</p>
               <p class="text-2xl p-5 m-5 text-center">Thanks for signing up for an account with &hacks XI! Soon, our registration form will be live here for you to fill out. We'll send you an email when it's time to do that. Until then, enjoy!</p>
-              <a class="bg-amber-300 rounded-xl shadow-card hover:shadow-hover transition p-10 m-10" href="/portal"><p class="text-2xl text-center">Go to Portal</p></a>
-              <button class="bg-amber-300 rounded-xl shadow-card hover:shadow-hover transition p-10 m-10 mb-20" onClick={handleLogout}><p class="text-2xl">Log out</p></button>
-            </div>
+              <a class="m-5 p-5 bg-pblue rounded-xl shadow-card hover:shadow-hover transition" href="/portal">Go to portal</a>
+              <button class="m-5 p-5 bg-pblue rounded-xl shadow-card hover:shadow-hover transition" onClick={handleLogout}>Log out</button>
           </div>
         </>
       ) : 

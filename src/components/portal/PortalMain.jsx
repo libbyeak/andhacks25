@@ -26,14 +26,18 @@ function PortalMain() {
                 .catch(e => {
                     alert(e);
                 })
+                .finally(() => {
+                    setAuthenticationDidLoad(true);
+                })
             }
             else {
                 console.log('no user exists');
+                setAuthenticationDidLoad(true);
             }
             });
-            setAuthenticationDidLoad(true);
             return () => unsubscribe();
         }, []);
+
     if (authenticationDidLoad) {
         return (
             <div class="flex flex-col">
@@ -47,8 +51,7 @@ function PortalMain() {
                         /* We have a record that the user submitted the form. Congratulate them on that. */
                         (
                             <p class="text-xl text-center">Thanks for signing up for &hacks XI! We got your form on {new Date(info.submissionTime).toDateString()}. 
-                            Check for a confirmation, and please review the preflight checklist below. See you on September 26 in the 
-                            <a class="underline text-blue-600" target="_blank" href={GOOGLE_MAPS_ISC_URL}>Integrated Science Center!</a></p>
+                            Check for a confirmation, and please review the preflight checklist below. See you on September 26 in the <a class="underline text-blue-600" target="_blank" href={GOOGLE_MAPS_ISC_URL}>Integrated Science Center!</a></p>
                         )
                         :
                         /* There's no record that the user has submitted the registration form. Invite them to do that */
