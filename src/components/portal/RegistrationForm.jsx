@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { db, auth } from 'src/scripts/firebase'; // Import your Firestore instance from Firebase config
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
 import LoadingBanner from './LoadingBanner';
 /* On the existence of separate "name" and "title" fields: "title" is the name I'm confident looks good to the user. "Name"
  * is the name I'm confident could be used as a variable name down the line without causing Unicode problems or whatever */
@@ -53,11 +53,33 @@ const formLayout = {
 function RegistrationForm() {
   const [user, setUser] = useState(null);
   const [authenticationDidLoad, setAuthenticationDidLoad] = useState(false);
+  const [info, setInfo] = useState(null);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       /* see note in SignOn.jsx */
       setUser(user);
-      setAuthenticationDidLoad(true);
+      if (auth.currentUser) {
+        const q = query(collection(db, 'registrants-tmp'), where('email', '==', auth.currentUser.email));
+        getDocs(q)
+        .then(querySnapshot => {
+            console.log('successfully retrieved firestore data');
+            querySnapshot.forEach((doc) => {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", doc.data());
+                setInfo(doc.data());
+            });
+        })
+        .catch(e => {
+            alert(e);
+        })
+        .finally(() => {
+            setAuthenticationDidLoad(true);
+        })
+    }
+    else {
+        console.log('no user exists');
+        setAuthenticationDidLoad(true);
+    }
     })
   });
 
@@ -103,84 +125,96 @@ function RegistrationForm() {
           
 
   if (authenticationDidLoad) {
-    return (
-      /* TODO: There are two states: logged in, and not logged in. There should be three: those two, plus "loading" -- fixed 7/17/25 */
-      <>
-      {auth.currentUser ? 
-      /* authenticated */
-      (
-      <div class="flex flex-col">
-        <div class="bg-pgreen rounded-xl border-2 border-black">
-          
-          <form onSubmit={handleSubmit}>
-            <div class="flex flex-col lg:w-2/3 justify-center items-end">
-              <p>
-                <label for="email">Account Email</label>
-                <input class="p-2 m-5 rounded-xl border-1 border-black" type="text" name="email" id="email" value={auth.currentUser ? auth.currentUser.email : ""} readonly/>
-              </p>
-              {formLayout.items.map((i) => (
-                  ((i.type == "text" || i.type == "number") ? (
-                    <div key={i.name}>
-                    <label for={i.name}>{i.title}</label>
-                    <input
-                    class="p-2 m-5 rounded-xl border-1 border-black"
-                    type={i.type} 
-                    id={i.name} 
-                    name={i.name} 
-                    onChange={handleChange}
-                    required
-                    /> 
-                    <br />
-                    </div>
-                  )
-                  :
-                  ((i.type == "dropdown") ? (
-                    <div key={i.name}>
-                    <label for={i.name}>{i.title}</label>
-                    <input class="p-2 m-5 rounded-xl border-1 border-black"
-                    list={i.name + "list"} 
-                    name={i.name}
-                    id={i.name}
-                    onChange={handleChange}
-                    />
-                    <datalist name={i.name + "list"} id={i.name + "list"}>
-                        {i.keys.map((j) => (
-                          <option value={j}>{j}</option>
-                        ))
-                        }
-                    </datalist>
-                    <br />
-                    </div>
-                  )
-                  :
-                  (
-                    <></>
-                  )
-                )))
-              )
-              }
-            </div>
-            <div class="flex flex-col justify-center items-center">
-              <button class="bg-amber-300 rounded-xl p-5 m-5 shadow-card hover:shadow-hover transition" type="submit">Submit</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      )
-      :
-      /* Not authenticated */
-      (
-        <div class="flex flex-col justify-center justify-self-center items-center content-center">
-          <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
-            <p class="text-3xl lg:text-5xl text-center p-5 m-5">To view this page, you need an &hacks XI account.</p>
-            <p class="text-3xl lg:text-5xl text-center p-5 m-5"><a class="underline text-blue-500" href="/authentication">Sign in to yours or create one here</a></p>
+    if (!info) {
+      return (
+        /* TODO: There are two states: logged in, and not logged in. There should be three: those two, plus "loading" -- fixed 7/17/25 */
+        <>
+        {auth.currentUser ? 
+        /* authenticated */
+        (
+        <div class="flex flex-col">
+          <div class="bg-pgreen rounded-xl border-2 border-black">
+            
+            <form onSubmit={handleSubmit}>
+              <div class="flex flex-col lg:w-2/3 justify-center items-end">
+                <p>
+                  <label for="email">Account Email</label>
+                  <input class="p-2 m-5 rounded-xl border-1 border-black" type="text" name="email" id="email" value={auth.currentUser ? auth.currentUser.email : ""} readonly/>
+                </p>
+                {formLayout.items.map((i) => (
+                    ((i.type == "text" || i.type == "number") ? (
+                      <div key={i.name}>
+                      <label for={i.name}>{i.title}</label>
+                      <input
+                      class="p-2 m-5 rounded-xl border-1 border-black"
+                      type={i.type} 
+                      id={i.name} 
+                      name={i.name} 
+                      onChange={handleChange}
+                      required
+                      /> 
+                      <br />
+                      </div>
+                    )
+                    :
+                    ((i.type == "dropdown") ? (
+                      <div key={i.name}>
+                      <label for={i.name}>{i.title}</label>
+                      <input class="p-2 m-5 rounded-xl border-1 border-black"
+                      list={i.name + "list"} 
+                      name={i.name}
+                      id={i.name}
+                      onChange={handleChange}
+                      />
+                      <datalist name={i.name + "list"} id={i.name + "list"}>
+                          {i.keys.map((j) => (
+                            <option value={j}>{j}</option>
+                          ))
+                          }
+                      </datalist>
+                      <br />
+                      </div>
+                    )
+                    :
+                    (
+                      <></>
+                    )
+                  )))
+                )
+                }
+              </div>
+              <div class="flex flex-col justify-center items-center">
+                <button class="bg-amber-300 rounded-xl p-5 m-5 shadow-card hover:shadow-hover transition" type="submit">Submit</button>
+              </div>
+            </form>
           </div>
         </div>
+        )
+        :
+        /* Not authenticated */
+        (
+          <div class="flex flex-col justify-center justify-self-center items-center content-center">
+            <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
+              <p class="text-3xl lg:text-5xl text-center p-5 m-5">To view this page, you need an &hacks XI account.</p>
+              <p class="text-3xl lg:text-5xl text-center p-5 m-5"><a class="underline text-blue-500" href="/authentication">Sign in to yours or create one here</a></p>
+            </div>
+          </div>
+        )
+      }
+      </>
       )
     }
-    </>
-    
-  )
+    else {
+      return (
+       <>
+          <div class="flex flex-col justify-center justify-self-center items-center">
+            <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
+              <p class="text-4xl p-5 m-5 mb-16 text-center">You've already registered for &hacks XI. See you there!</p>
+            </div>
+          </div>
+        </>
+      )
+    }
   }
   else {
     return (
