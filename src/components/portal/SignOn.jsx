@@ -87,7 +87,8 @@ function SignOn() {
       (
         <>
           <div class="flex flex-col justify-self-center justify-center items-center content-center bg-pgreen rounded-xl border-black border-2">
-              <p class="text-4xl p-5 m-5 mb-16">Welcome, {user.email}</p>
+              <p class="text-4xl p-5 m-5 sm:mb-16">Welcome, <span class="hidden sm:inline">{user.email}</span></p>
+              <p class="text-md inline mb-8 sm:hidden">{user.email}</p>
               <p class="text-2xl p-5 m-5 text-center">Thanks for signing up for an account with &hacks XI! Soon, our registration form will be live here for you to fill out. We'll send you an email when it's time to do that. Until then, enjoy!</p>
               <a class="m-5 p-5 bg-pblue rounded-xl shadow-card hover:shadow-hover transition" href="/portal">Go to portal</a>
               <button class="m-5 p-5 bg-pblue rounded-xl shadow-card hover:shadow-hover transition" onClick={handleLogout}>Log out</button>
