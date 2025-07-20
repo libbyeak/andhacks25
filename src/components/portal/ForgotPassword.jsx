@@ -5,7 +5,6 @@ import LoadingBanner from './LoadingBanner';
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
-    const [code, setCode] = useState('');
 
     async function handleSubmit(e) {
         sendPasswordResetEmail(auth, email)
@@ -31,7 +30,7 @@ function ForgotPassword() {
                 <input class="w-5/6 rounded-xl p-5 m-5" type="email" placeholder="Enter your account email..." onChange={(e) => { setEmail(e.target.value)}} />
                 <input class="bg-pblue rounded-xl shadow-card hover:shadow-hover transition p-5 m-5 text-center" type="submit" value="Send Reset Link" />
                 <a class="bg-pblue rounded-xl shadow-card hover:shadow-hover transition p-5 m-5 text-center" href="/authentication">Back to Sign-in</a>
-            </div> 
+            </div>
         </form>
         </div>
         </>

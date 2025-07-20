@@ -51,7 +51,7 @@ function PortalMain() {
                         /* We have a record that the user submitted the form. Congratulate them on that. */
                         (
                             <p class="text-xl text-center p-10 m-10">Thanks for signing up for &hacks XI! We received your registration on {new Date(info.submissionTime).toDateString()}. 
-                            Check for a confirmation email, but there is nothing else you need to do at this time. Check back later for more information about logistics. See you on September 26 in the <a class="underline text-blue-600" target="_blank" href={GOOGLE_MAPS_ISC_URL}>Integrated Science Center!</a></p>
+                            Check for a confirmation email, but there is nothing else you need to do at this time. Check back later for more information about logistics. See you on September 19 on the <a class="underline text-blue-600" target="_blank" href={GOOGLE_MAPS_ISC_URL}>William & Mary campus.</a></p>
                         )
                         :
                         /* There's no record that the user has submitted the registration form. Invite them to do that */
