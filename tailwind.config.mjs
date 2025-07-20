@@ -4,6 +4,9 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      screens: {
+        'xs': '420px',
+      },
       boxShadow: {
         card1: "2px 2px #000000",
         card: "4px 4px #000000",
