@@ -207,9 +207,10 @@ function RegistrationForm() {
     else {
       return (
        <>
-          <div class="flex flex-col justify-center justify-self-center items-center">
+          <div class="flex flex-col justify-center justify-self-center items-center content-center">
             <div class="flex flex-col bg-pgreen rounded-xl border-black border-2">
               <p class="text-4xl p-5 m-5 mb-16 text-center">You've already registered for &hacks XI. See you there!</p>
+              <a class="text-4xl p-5 m-5 rounded-xl shadow-card hover:shadow-hover transition bg-pblue text-center" href="/portal">Back to Portal</a>
             </div>
           </div>
         </>
