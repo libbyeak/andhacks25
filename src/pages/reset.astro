@@ -1,0 +1,23 @@
+---
+import BaseHead from "@/components/BaseHead.astro"
+import Header from "@/components/Header.astro"
+import Footer from "@/components/Footer.astro"
+import ForgotPassword from "@/components/portal/ForgotPassword"
+---
+<html>
+    <head>
+        <BaseHead title="&hacks XI Portal" description="&hacks XI Portal"/>
+    </head>
+    <body>
+        <Header />
+        <main class="container mx-auto md:px-10">
+        <div class="py-256px px-256px"> <!-- Voodoo magic; do not change -->
+           <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-4xl">&nbsp</p> 
+        </div>
+        <ForgotPassword client:load />
+        </main>
+        <Footer />
+    </body>
+</html>

@@ -122,6 +122,7 @@ function SignOn() {
             <button class="m-5 p-5 bg-pblue rounded-xl shadow-card hover:shadow-hover transition" type="button" onClick={() => setIsLogin(!isLogin)}>
               {isLogin ?  'Don\'t have an account? Click to create one!' : 'Already have an account with us? Click here to sign in instead.' }
             </button>
+            <a class="m-5 p-5 bg-pblue rounded-xl shadow-card hover:shadow-hover transition" href="/reset">Forgot Password?</a>
             </div>
           </form>
         </div>
