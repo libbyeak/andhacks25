@@ -40,13 +40,15 @@ function PortalMain() {
 
     if (authenticationDidLoad) {
         return (
+            <>
+            <p class="text-3xl underline p-5 m-5 mb-10">&hacks XI Registration Portal</p>
             <div class="flex flex-col justify-center items-center content-center">
+
                 <div class="flex flex-col bg-pgreen rounded-xl border-2 border-black">
                     {user ?
                     /* User is logged in */
                     (
                         <>
-                        <p class="text-3xl underline p-5 m-5 mb-10">&hacks XI Registration Portal</p>
                         {info ?
                         /* We have a record that the user submitted the form. Congratulate them on that. */
                         (
@@ -80,6 +82,7 @@ function PortalMain() {
                     }
                 </div>
             </div>
+            </>
         )
     }
     else {
