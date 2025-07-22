@@ -2,21 +2,21 @@
 const today = new Date();
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import instagram from "@/assets/ig_256px.svg"
-import discord from "@/assets/discord_256px.svg"
+import instagram from "@/assets/instagramlogo.svg"
+import discord from "@/assets/discordlogo.svg"
 import devpost from "@/assets/devpostlogo.svg"
 
 ---
 
 <footer
-  class="flex flex-col items-center container mx-auto p-10 text-center gap-10 pb-40"
+  class="flex flex-col items-center container mx-auto p-10 text-center gap-10 pb-40 bg-pdarkblue opacity-bg-30"
 >
 
   <div class="flex items-center gap-6 text-5xl">
     <a
       href="https://www.instagram.com/andhackswm/#"
       target="_blank"
-      class="py-1 pl-3 border-1 border-black bg-ppink shadow-card hover:shadow-hover transition rounded-xl"
+      class="border-1 p-1 border-black rounded-full bg-ppink shadow-card hover:shadow-hover transition"
     >
       <Image width="75" height="75" src={instagram} alt="" />
       
@@ -24,16 +24,16 @@ import devpost from "@/assets/devpostlogo.svg"
     <a
       href="https://discord.gg/hCyxsqWePS" 
       target="_blank"
-      class="border-1 p-1 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
+      class="border-1 p-3 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
     >
-      <Image width='75' height='75' src={discord} alt="" />
+      <Image  width='60' height='60' src={discord} alt="" />
     </a>
     <a
       href="https://andhacks-x.devpost.com/project-gallery"
       target="_blank"
-      class="py-1 pl-3 border-1 border-black bg-pgreen shadow-card hover:shadow-hover transition rounded-xl"
+      class="border-1 p-3 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
     >
-    <Image class="p-10px m-10px" width="75" height="75" src={devpost} alt="" />
+    <Image class="p-10px m-10px" width="60" height="60" src={devpost} alt="" />
   </a>
   </div>
   <a
@@ -44,4 +44,7 @@ import devpost from "@/assets/devpostlogo.svg"
   >
     Register now!
   </a>
+  <div class="flex items-center gap-6 text-5xl text-white">
+    <p style="font-size:18px"> Made by W&M's &hacks team </p>
+  </div>
 </footer>
