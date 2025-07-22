@@ -2,8 +2,8 @@
 const today = new Date();
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import instagram from "@/assets/instagram.svg"
-import discord from "@/assets/discordlogo.svg"
+import instagram from "@/assets/ig_256px.svg"
+import discord from "@/assets/discord_256px.svg"
 import devpost from "@/assets/devpostlogo.svg"
 
 ---
@@ -16,7 +16,7 @@ import devpost from "@/assets/devpostlogo.svg"
     <a
       href="https://www.instagram.com/andhackswm/#"
       target="_blank"
-      class="py-1 pl-3 rounded-md border-1 border-black bg-ppink shadow-card hover:shadow-hover transition"
+      class="py-1 pl-3 border-1 border-black bg-ppink shadow-card hover:shadow-hover transition rounded-xl"
     >
       <Image width="75" height="75" src={instagram} alt="" />
       
@@ -24,14 +24,14 @@ import devpost from "@/assets/devpostlogo.svg"
     <a
       href="https://discord.gg/hCyxsqWePS" 
       target="_blank"
-      class="py-1 pl-3 rounded-md border-1 border-black bg-pblue shadow-card hover:shadow-hover transition"
+      class="border-1 p-1 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
     >
       <Image width='75' height='75' src={discord} alt="" />
     </a>
     <a
       href="https://andhacks-x.devpost.com/project-gallery"
       target="_blank"
-      class="py-1 pl-3 rounded-md border-1 border-black bg-pgreen shadow-card hover:shadow-hover transition"
+      class="py-1 pl-3 border-1 border-black bg-pgreen shadow-card hover:shadow-hover transition rounded-xl"
     >
     <Image class="p-10px m-10px" width="75" height="75" src={devpost} alt="" />
   </a>
