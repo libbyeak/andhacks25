@@ -13,7 +13,9 @@ import { Image } from "astro:assets";
     <a class="flex items-center gap-2" href="/">
       <!--<p class="font-kablamo text-ppink text-4xl md:text-5xl">S</p> I thought this asset was an image but apparently it's text? -->
       <!-- <img class="bg-blue-950 rounded-lg" width="96" height="96" src="src/assets/andycar.png" />-->
-       <Image src={AndyCarImage} alt="&hacks XI logo" />
+       <div class="bg-blue-950 rounded-lg">
+         <Image width={96} height={96} src={AndyCarImage} alt="&hacks XI logo" />
+      </div>
       <span class="hidden xs:inline"><p class="pt-2 md:text-5xl font-semibold flex">&hacks XI</p></span>
     </a>
     <ul class="items-center md:gap-8 text-nowrap hidden md:flex">
