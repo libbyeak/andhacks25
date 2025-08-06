@@ -23,6 +23,7 @@
     "astro-icon": "^1.1.5",
     "firebase": "^11.10.0",
     "hamburgers": "^1.2.1",
+    "netlify": "^23.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "sharp": "^0.34.2",
