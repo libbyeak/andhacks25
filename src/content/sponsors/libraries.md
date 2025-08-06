@@ -1,7 +1,7 @@
 ---
 tier: 'Bronze'
 name: 'W&M Libraries'
-logo: 'src/assets/sponsors/libraries.svg'
+logo: './libraries.svg'
 logoAlt: the W&M Libraries logo'
 website: 'https://libraries.wm.edu'
 ---
