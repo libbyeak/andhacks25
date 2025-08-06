@@ -5,17 +5,18 @@ import { type ImageMetadata } from "astro";
 export interface Props {
     name: string;
     tier: string;
-    src: ImageMetadata;
+    logo: ImageMetadata;
     website: string;
     color: string;
 }
 
-const {name, tier, src, website, color} = Astro.props;
+const {name, tier, logo, website, color} = Astro.props;
 const images = import.meta.glob<{default: ImageMetadata}>('../assets/sponsors/*.{svg,png}')
 ---
 <div class:list={["flex flex-col p-2 m-2 border-1 border-black rounded-xl justify-center items-center", color]}>
     <a href={website} target="_blank">
         <p>{name}</p>
+        <Picture src={logo} alt="test" />
         <!--<Picture src={src} alt="lorem ipsum dolor sit amet" class="brightness-0" />-->
     </a>
 </div>
