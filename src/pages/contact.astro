@@ -1,0 +1,63 @@
+---
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { Image } from "astro:assets";
+import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
+import SponsorTableImage from "@/assets/andycar.png"; /* apparently this doesn't work if the file name is uppercase? seriously? */
+import { getCollection } from "astro:content";
+const sponsors = await getCollection('sponsors');
+---
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        <div class="py-256px px-256px"> <!-- Voodoo magic; do not change -->
+           <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-7xl"> &nbsp &nbsp</p>
+            <p class="text-4xl">&nbsp</p> 
+        </div>
+        <div class="flex flex-col group object-contain ">
+            <div class="flex flex-col bg-pevergreen items-center content-center rounded-xl border-black border-2 p-7 m-7">
+                <p class="text-4xl md:text-7xl text-white">Contact the &hacks XI Team</p>
+            </div>
+        </div>
+        <!-- Presumably there are right things to say here, but I don't know what those things are
+            This is the best I could think of  
+        -->
+        <div class="flex flex-row object-contain">
+            <div class="flex flex-col justify-center  justify-self-center items-center content-center w-1/2 p-10 m-10">
+                <p class="text-center text-2xl lg:w-7/8">Reach out to <a class="text-blue-900 underline" href="mailto:computing@wm.edu">computing@wm.edu</a>,
+                    and a member of our team will be in touch.
+                </p>
+            </div>
+            <div class="flex flex-col justify-end w-1/2 p-10 m-10">
+                <div class="p-8 border-6 border-black rounded-xl">
+                    <Image class="shadow rounded-xl bg-blue-950" src={SponsorTableImage} alt="Sponsors tabling at &hacks X" />
+                </div>
+            </div>
+        </div>
+        <!-- <div class="flex flex-row min-w-full object-contain group justify-center items-center content-center">
+            <div class="flex flex-col border-8 border-black rounded-xl p-5 m-5 justify-center items-center grow-1">
+                <p class="text-7xl">60%</p>
+                <p class="text-xl">First-time hackers</p>
+           </div>
+           <div class="flex flex-col border-8 border-black rounded-xl p-5 m-5 justify-center items-center grow-1">
+                <p class="text-7xl">33%</p>
+                <p class="text-xl">Non-CS Majors</p>
+            </div>
+         <div class="flex flex-col border-8 border-black rounded-xl p-5 m-5 justify-center items-center grow-1">
+                <p class="text-7xl">200+</p>
+                <p class="text-xl">Registrants</p>
+            </div>
+            <div class="flex flex-col border-8 border-black rounded-xl p-5 m-5 justify-center items-center grow-1">
+                <p class="text-7xl">30+</p>
+                <p class="text-xl">Projects</p>
+            </div>-->
+            </div>
+        <Footer />
+    </body>
+</html>
