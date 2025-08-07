@@ -16,7 +16,6 @@ const images = import.meta.glob<{default: ImageMetadata}>('../assets/sponsors/*.
 ---
 <div class:list={["flex flex-col p-2 m-2 border-1 border-black rounded-xl justify-center items-center", color]}>
     <a href={website} target="_blank">
-        <p>{name}</p>
         <Image src={logo} alt="Sponsor logo" />
     </a>
 </div>
