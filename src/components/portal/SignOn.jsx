@@ -99,7 +99,7 @@ function SignOn() {
       (
         <div class="flex flex-col justify-center items-center content-center">
           <form onSubmit={handleSubmit}>
-            <div class="flex flex-col justify-center items-center content-center bg-pgreen rounded-xl border-black border-2">
+            <div class="flex flex-col justify-center items-center content-center bg-pgreen rounded-xl border-black border-2 mb-20">
             <input
               class="w-5/6 rounded-xl p-5 m-5"
               type="email"
