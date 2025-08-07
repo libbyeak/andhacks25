@@ -3,5 +3,5 @@ tier: 'Bronze'
 name: 'William & Mary Entrepreneurship Hub'
 logo: 'ehub.svg'
 logoAlt: the E-hub logo'
-website: 'https://wm.edu'
+website: 'https://wm.edu/offices/entrepreneurship'
 ---
