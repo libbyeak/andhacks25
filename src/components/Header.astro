@@ -2,6 +2,9 @@
 /* This is the header/navbar at the top of every page */
 import Link from "./HeaderLink.astro";
 import "../styles/hamburgers.css";
+import AndyCarImage from "src/assets/andycar.png";
+import { Image } from "astro:assets";
+
 ---
 <header>
   <nav
@@ -9,7 +12,10 @@ import "../styles/hamburgers.css";
     <a id="mlh-trust-badge" style="display:block;max-width:100px;min-width:60px;position:fixed;right:50px;top:0;width:10%;z-index:10000" href="https://mlh.io/na?utm_source=na-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=blue" target="_blank"><img src="https://s3.amazonaws.com/logged-assets/trust-badge/2026/mlh-trust-badge-2026-blue.svg" alt="Major League Hacking 2026 Hackathon Season" style="width:100%"></a>
     <a class="flex items-center gap-2" href="/">
       <!--<p class="font-kablamo text-ppink text-4xl md:text-5xl">S</p> I thought this asset was an image but apparently it's text? -->
-      <img class="bg-blue-950 rounded-lg" width="96" height="96" src="src/assets/andycar.png" />
+      <!-- <img class="bg-blue-950 rounded-lg" width="96" height="96" src="src/assets/andycar.png" />-->
+       <div class="bg-blue-950 rounded-lg">
+         <Image width={96} height={96} src={AndyCarImage} alt="&hacks XI logo" />
+      </div>
       <span class="hidden xs:inline"><p class="pt-2 md:text-5xl font-semibold flex">&hacks XI</p></span>
     </a>
     <ul class="items-center md:gap-8 text-nowrap hidden md:flex">

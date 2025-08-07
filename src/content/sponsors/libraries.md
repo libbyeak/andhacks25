@@ -1,7 +1,7 @@
 ---
-name: 'W&M Libraries'
 tier: 'Bronze'
-logo: 'src/assets/sponsors/libraries.svg'
-logoAlt: the GAR logo'
+name: 'W&M Libraries'
+logo: 'libraries.svg'
+logoAlt: the W&M Libraries logo'
 website: 'https://libraries.wm.edu'
 ---

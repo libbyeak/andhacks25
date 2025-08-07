@@ -133,7 +133,7 @@ function RegistrationForm() {
         /* authenticated */
         (
         <div class="flex flex-col">
-          <div class="bg-pgreen rounded-xl border-2 border-black">
+          <div class="bg-pgreen rounded-xl border-2 border-black mb-20">
             
             <form onSubmit={handleSubmit}>
               <div class="flex flex-col lg:w-2/3 justify-center items-end">

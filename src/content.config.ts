@@ -6,9 +6,9 @@ const blog = defineCollection({
     loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
     // Type-check frontmatter using a schema
     schema: z.object({
+        title: z.string(),
+        description: z.string(),
         icon: z.string().optional(),
-        title: z.string().optional(),
-        description: z.string().optional(),
         // Transform string to Date object
         pubDate: z.coerce.date().optional(),
         updatedDate: z.coerce.date().optional(),
@@ -18,7 +18,7 @@ const blog = defineCollection({
 });
 
 const sponsors = defineCollection({
-    loader: glob({ base: './src/content/sponsors', pattern: '**/*{.md,mdx}'}),
+    loader: glob({ base: './src/content/sponsors', pattern: '**/*.{md,mdx}'}),
     schema: ({image}) => z.object({
         tier: z.string(),
         name: z.string(),
