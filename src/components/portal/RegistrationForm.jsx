@@ -134,7 +134,24 @@ function RegistrationForm() {
         (
         <div class="flex flex-col">
           <div class="bg-pgreen rounded-xl border-2 border-black mb-20">
-            
+            <p>
+              &hacks XI Registration Form (Fall 2025)
+              Thank you for showing interest in &hacks XI, William & Mary's 11th annual hackathon! Please fill out this form to receive all future correspondence about the event and reserve your spot!
+
+              FAQ:
+              When? 
+              From the morning of September 27th to the evening of September 28th (Sept. 27-28). The schedule will roughly look like this:
+              Saturday: hacker check-in, opening ceremony, team building, hacking begins, provided lunch, workshops/events throughout the day, provided dinner.
+              Sunday: provided breakfast, hacking ends, in-person judging, closing ceremony, provided dinner.
+              Where? 
+              William & Mary (Williamsburg, VA, USA)
+              Integrated Science Center (ISC), 540 Landrum Dr, Williamsburg, VA 23185
+              Who?
+              Undergraduate students from all universities and high school students
+              This is an in-person only event!
+              Why is it called &hacks?
+              The school has celebrated the ampersand as a symbol of multifaceted students before, and we would like to exemplify these aspects especially within the tech community!
+            </p>
             <form onSubmit={handleSubmit}>
               <div class="flex flex-col lg:w-2/3 justify-center items-end">
                 <p>
