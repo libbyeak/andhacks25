@@ -3,6 +3,7 @@ import BaseHead from "@/components/BaseHead.astro"
 import Header from "@/components/Header.astro"
 import Footer from "@/components/Footer.astro"
 import ForgotPassword from "@/components/portal/ForgotPassword"
+import HeaderSpacer from "@/components/HeaderSpacer.astro"
 ---
 <html>
     <head>
@@ -11,11 +12,7 @@ import ForgotPassword from "@/components/portal/ForgotPassword"
     <body>
         <Header />
         <main class="container mx-auto md:px-10">
-        <div class="py-256px px-256px"> <!-- Voodoo magic; do not change -->
-           <p class="text-7xl"> &nbsp &nbsp</p>
-            <p class="text-7xl"> &nbsp &nbsp</p>
-            <p class="text-4xl">&nbsp</p> 
-        </div>
+        <HeaderSpacer />
         <ForgotPassword client:load />
         </main>
         <Footer />
