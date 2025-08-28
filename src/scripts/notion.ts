@@ -15,16 +15,16 @@ export async function getEvents(): Promise<ItineraryEvent[]> {
     //For now, at least, there are few enough events in the DB that we don't need a filter
     //On the full itinerary, we want to show events that already happened during the hackathon, so date filtering
     //can't be done at this step. We've got to do that when we display the events.
-    /*filter: {
+    filter: {
       and: [
         {
-          property: "Date",
-          date: {
-            after: rightNow
-          },
+          property: "Show on Homepage",
+          checkbox: {
+            equals: true
+          }
         },
       ],
-    },*/
+    },
   })
   .catch(err => {
     /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
