@@ -1,3 +1,4 @@
+/* This is the actual form that users fill out in order to register for &hacks, including the firebase portions */
 import { useState, useEffect } from 'react';
 import { db, auth } from 'src/scripts/firebase'; // Import your Firestore instance from Firebase config
 import { collection, addDoc, query, where, getDocs } from 'firebase/firestore';
@@ -156,7 +157,7 @@ function RegistrationForm() {
               <div class="flex flex-col lg:w-2/3 justify-center items-end">
                 <p>
                   <label for="email">Account Email</label>
-                  <input class="p-2 m-5 rounded-xl border-1 border-black" type="text" name="email" id="email" value={auth.currentUser ? auth.currentUser.email : ""} readonly/>
+                  <input class="p-2 m-5 rounded-xl border-1 border-black" type="text" name="email" id="email" value={auth.currentUser ? auth.currentUser.email : ""} readonly />
                 </p>
                 {formLayout.items.map((i) => (
                     ((i.type == "text" || i.type == "number") ? (
@@ -222,6 +223,7 @@ function RegistrationForm() {
       )
     }
     else {
+      /* User has already submitted their registration; don't let them give us a duplicate entry */
       return (
        <>
           <div class="flex flex-col justify-center justify-self-center items-center content-center">
@@ -235,6 +237,7 @@ function RegistrationForm() {
     }
   }
   else {
+    /* waiting on the authentication state */
     return (
       <LoadingBanner />
     )

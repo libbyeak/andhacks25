@@ -11,8 +11,10 @@ function PortalMain() {
     const [authenticationDidLoad, setAuthenticationDidLoad] = useState(false);
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            /* see note in SignOn.jsx */
             setUser(currentUser);
             if (auth.currentUser) {
+                /* Look up whether we have a record of this user submitting the registration form */
                 const q = query(collection(db, 'registrants-tmp'), where('email', '==', auth.currentUser.email));
                 getDocs(q)
                 .then(querySnapshot => {
@@ -24,13 +26,17 @@ function PortalMain() {
                     });
                 })
                 .catch(e => {
+                    /* Something bad happened and we couldn't confirm with Firestore. Note that this does not mean
+                     * there's no form -- that case doesn't throw an error
+                    */
                     alert(e);
                 })
                 .finally(() => {
-                    setAuthenticationDidLoad(true);
+                    setAuthenticationDidLoad(true); /* get on the horn that we're done */
                 })
             }
             else {
+                /* we confirmed that nobody's logged in */
                 console.log('no user exists');
                 setAuthenticationDidLoad(true);
             }
@@ -86,6 +92,7 @@ function PortalMain() {
         )
     }
     else {
+        /* Authentication hasn't loaded yet, tell the user we're still waiting */
         return (
             <LoadingBanner />
         )

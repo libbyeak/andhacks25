@@ -1,7 +1,7 @@
+/* This file controls the "forgot password" page for the *hacks portal */
 import { useState, useEffect } from 'react';
-import { db, auth } from 'src/scripts/firebase';
+import { auth } from 'src/scripts/firebase';
 import { sendPasswordResetEmail } from 'firebase/auth';
-import LoadingBanner from './LoadingBanner';
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
@@ -13,14 +13,16 @@ function ForgotPassword() {
         })
         .catch((error) => {
             if (error.code.includes('missing-email')) {
+                /* end-user did something wrong */
                 alert('Please enter an email');
             }
             else {
+                /* _I_ did something wrong */
                 alert(errorMessage + "\n\nPlease report this error to the &hacks team by sending it to computing@wm.edu");
             }
         });
     }
-
+    /* You cannot possibly be logged in if you don't know your password, so we don't need to wait for the authentication state to reveal itself */
     return (
         <>
         <div><p class="text-4xl underline mb-20"><strong>Reset your &hacks XI Password</strong></p></div>

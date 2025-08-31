@@ -1,3 +1,4 @@
+/* This file handles both sign-in and registration for the &hacks portal */
 import { useState, useEffect } from 'react';
 import {
   createUserWithEmailAndPassword,

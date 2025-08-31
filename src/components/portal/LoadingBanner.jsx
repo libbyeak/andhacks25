@@ -1,3 +1,4 @@
+/* If any other page in the portal is waiting on something before it can do what it needs to do, it renders this component */
 function LoadingBanner() {
     return (
         <>
