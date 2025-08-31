@@ -35,9 +35,10 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
 
   const events = pages.results
   .map((page) => {
+    let dateObj = new Date(page.properties.Date.date.start);
     return {
       id: page,
-      date: page.properties.Date.date ? new Date(page.properties.Date.date.start).toDateString() : "Date and time TBA",
+      date: page.properties.Date.date ? dateObj.toDateString() + ' at ' + dateObj.getHours() + ':00' : "Date and time TBA",
       name: page.properties.Name.title[0] ? page.properties.Name.title[0].text.content : "TBA", /* VSCode complains that page.properties doesn't exist, but empirically it seems to work right */
       location: page.properties.Location.rich_text[0] ? page.properties.Location.rich_text[0].plain_text : "Location TBA",
       /* this is a URL, not a page on our server; make sure links handle that correctly */
