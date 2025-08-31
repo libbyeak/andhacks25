@@ -7,7 +7,7 @@ export type ItineraryEvent = {
   website: string;
 };
 
-export async function getEvents(): Promise<ItineraryEvent[]> {
+export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent[]> {
   let somethingIsFuckedUp = false; /* flag variable to judge whether we abort the mission and return early */
   const notion = new Client({ auth: import.meta.env.NOTION_TOKEN });
   const pages = await notion.databases.query({
@@ -20,7 +20,7 @@ export async function getEvents(): Promise<ItineraryEvent[]> {
         {
           property: "Show on Homepage",
           checkbox: {
-            equals: true
+            equals: filterHomepage
           }
         },
       ],

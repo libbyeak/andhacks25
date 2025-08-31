@@ -5,7 +5,7 @@ import Footer from "@/components/Footer.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
 import {getEvents} from "src/scripts/notion.ts"
 import HeaderSpacer from "@/components/HeaderSpacer.astro";
-const allEvents = await getEvents();
+const allEvents = await getEvents(false);
 const now = new Date()
 ---
 <!doctype html>

@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components"; /* not used but maybe they will be
 import { Image } from "astro:assets";
 import { GOOGLE_MAPS_ISC_URL } from "src/consts";
 import { getEvents } from 'src/scripts/notion';
-const events = await getEvents()
+const events = await getEvents(true);
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}"
 );
