@@ -19,17 +19,17 @@ const sponsors = await getCollection('sponsors');
       <div class="flex flex-col gap-0 justify-start items-start w-2/3 md:w-5/6 p-0px">
         <h3 class="text-3xl lg:text-6xl p-0 mb-3 text-white">Our Sponsors & Partners</h3> <!--- ampersand or the word "and?" -->
         <!-- left side -->
-         <ul class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 auto-rows-fr">
-         {sponsors.map((s) => (
-          <li class="grid">
-          <SponsorBadge
-            name={s.data.name}
-            tier={s.data.tier}
-            logo={s.data.logo}
-            website={s.data.website}
-            color="bg-pgreen"
-          />
-          </li>
+         <ul class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 auto-rows-fr"><!--FIXME: redo layout, I think -->
+         {sponsors.map((s) => (        
+            <li class="grid row-span-2">
+              <SponsorBadge
+                name={s.data.name}
+                tier={s.data.tier}
+                logo={s.data.logo}
+                website={s.data.website}
+                color="bg-pgreen"
+              />
+            </li>
          ))}
          </ul>
       </div>
