@@ -38,10 +38,11 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
     let dateObj = new Date(page.properties.Date.date.start);
     return {
       id: page,
-      date: page.properties.Date.date ? dateObj.toDateString() + ' at ' + dateObj.getHours() + ':00' : "Date and time TBA",
+      date: new Date(page.properties.Date.date.start),
+      //date: page.properties.Date.date ? dateObj.toDateString() + ' at ' + dateObj.getHours() + ':00' : "Date and time TBA",
       name: page.properties.Name.title[0] ? page.properties.Name.title[0].text.content : "TBA", /* VSCode complains that page.properties doesn't exist, but empirically it seems to work right */
-      location: page.properties.Location.rich_text[0] ? page.properties.Location.rich_text[0].plain_text : "Location TBA",
       /* this is a URL, not a page on our server; make sure links handle that correctly */
+      location: page.properties.Location.rich_text[0] ? page.properties.Location.rich_text[0].plain_text : "Location TBA",
       website: page.properties.Website.url ? ((page.properties.Website.url.slice(0,3) == 'http') ? page.properties.Website.url : ('http://' + page.properties.Website.url)) : "", 
     };
   })
