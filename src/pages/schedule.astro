@@ -28,9 +28,9 @@ const now = new Date()
                     {
                     allEvents ? 
                     (
-                    allEvents.filter((e)=> e.date.getTime() > Date.now()).map(event => (
+                    /*allEvents.filter((e)=> e.date.getTime() > (Date.now()-3600))*/allEvents.map(event => (
                         <div class="m-0 p-0"> <!-- auto-navigate to anchor for the current time -->
-                            <tr class="odd:bg-pgreen even:bg-pyellow">
+                            <tr class={Math.floor(event.date.getTime() / 3600) == Math.floor(Date.now() / 3600) ? "bg-red-700" : "odd:bg-pgreen even:bg-pyellow"}>
                                 <td class="py-3">{event.date}</td>
                                 <td class="py-3"><strong>{event.name}</strong></td>
                                 <td class="py-3">{event.location}</td>

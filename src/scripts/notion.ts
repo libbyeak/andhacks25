@@ -9,27 +9,54 @@ export type ItineraryEvent = {
 
 export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent[]> {
   let somethingIsFuckedUp = false; /* flag variable to judge whether we abort the mission and return early */
+
   const notion = new Client({ auth: import.meta.env.NOTION_TOKEN });
-  const pages = await notion.databases.query({
-    database_id: import.meta.env.NOTION_DATABASE_ID,
-    //For now, at least, there are few enough events in the DB that we don't need a filter
-    //On the full itinerary, we want to show events that already happened during the hackathon, so date filtering
-    //can't be done at this step. We've got to do that when we display the events.
-    filter: {
-      and: [
-        {
-          property: "Show on Homepage",
-          checkbox: {
-            equals: filterHomepage
-          }
-        },
-      ],
-    },
-  })
-  .catch(err => {
-    /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
-    somethingIsFuckedUp = true; /* 'return' won't help us here (promises) -- set a flag */ 
-  });
+  let pages = null;
+  /* I hate this so very much */
+  if (filterHomepage) {
+     pages = await notion.databases.query({
+      database_id: import.meta.env.NOTION_DATABASE_ID,
+      //For now, at least, there are few enough events in the DB that we don't need a filter
+      //On the full itinerary, we want to show events that already happened during the hackathon, so date filtering
+      //can't be done at this step. We've got to do that when we display the events.
+      filter: {
+        and: [
+          {
+            property: "Show on Homepage",
+            checkbox: {
+              equals: true,
+            }
+          },
+        ],
+      },
+    })
+    .catch(err => {
+      /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
+      somethingIsFuckedUp = true; /* 'return' won't help us here (promises) -- set a flag */ 
+    });
+  }
+  else {
+      pages = await notion.databases.query({
+      database_id: import.meta.env.NOTION_DATABASE_ID,
+      //For now, at least, there are few enough events in the DB that we don't need a filter
+      //On the full itinerary, we want to show events that already happened during the hackathon, so date filtering
+      //can't be done at this step. We've got to do that when we display the events.
+      /*filter: {
+        and: [
+          {
+            property: "Show on Homepage",
+            checkbox: {
+              equals: true,
+            }
+          },
+        ],
+      },*/
+    })
+    .catch(err => {
+      /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
+      somethingIsFuckedUp = true; /* 'return' won't help us here (promises) -- set a flag */ 
+    });
+  }
 
   if (somethingIsFuckedUp) return false;
 
@@ -38,6 +65,7 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
     let dateObj = new Date(page.properties.Date.date.start);
     return {
       id: page,
+      show: page.properties['Show on Homepage'],
       date: new Date(page.properties.Date.date.start),
       //date: page.properties.Date.date ? dateObj.toDateString() + ' at ' + dateObj.getHours() + ':00' : "Date and time TBA",
       name: page.properties.Name.title[0] ? page.properties.Name.title[0].text.content : "TBA", /* VSCode complains that page.properties doesn't exist, but empirically it seems to work right */
