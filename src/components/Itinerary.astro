@@ -40,7 +40,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
           { events ? (
           events.filter(e => e.date.getTime() > (Date.now()-3600)).map((event) => (
             <tr class="odd:bg-pgreen even:bg-pcolonialyellow">
-              <td><p class="text-sm py-2 lg:px-5">{event.date}</p></td>
+              <td><p class="text-sm py-2 lg:px-5">{event.date.toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: 'numeric', hour12: true, minute: 'numeric'})}</p></td>
               <td><p class="text-sm py-2 lg:px-5"><a class="font-bold italic" href={event.website}>{event.name}</a></p></td>
               <td><p class="text-sm py-2 lg:px-5">{event.location}</p></td>
             </tr>
