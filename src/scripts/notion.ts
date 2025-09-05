@@ -12,7 +12,7 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
 
   const notion = new Client({ auth: import.meta.env.NOTION_TOKEN });
   let pages = null;
-  /* I hate this so very much */
+  /* I hate this so very much */  
   if (filterHomepage) {
      pages = await notion.databases.query({
       database_id: import.meta.env.NOTION_DATABASE_ID,
@@ -36,8 +36,8 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
     });
   }
   else {
-      pages = await notion.databases.query({
-      database_id: import.meta.env.NOTION_DATABASE_ID,
+    pages = await notion.databases.query({
+        database_id: import.meta.env.NOTION_DATABASE_ID,
       //For now, at least, there are few enough events in the DB that we don't need a filter
       //On the full itinerary, we want to show events that already happened during the hackathon, so date filtering
       //can't be done at this step. We've got to do that when we display the events.
@@ -65,7 +65,6 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
     let dateObj = new Date(page.properties.Date.date.start);
     return {
       id: page,
-      show: page.properties['Show on Homepage'],
       date: new Date(page.properties.Date.date.start),
       //date: page.properties.Date.date ? dateObj.toDateString() + ' at ' + dateObj.getHours() + ':00' : "Date and time TBA",
       name: page.properties.Name.title[0] ? page.properties.Name.title[0].text.content : "TBA", /* VSCode complains that page.properties doesn't exist, but empirically it seems to work right */
@@ -76,7 +75,10 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
   })
   .sort((a, b) => {
     try {
-    if (a != undefined && b!= undefined) a.date.getTime() - b.date.getTime()
+    if (a != undefined && b!= undefined) {
+      console.log('times are: (' + a.date.getTime() + '+' + a.date.toDateString() + ') (' + ' ' + b.date.getTime());
+      return a.date.getTime() - b.date.getTime()
+    }
     }
     catch {
       return -1; /* Events with date/time TBA will always be placed at the END of the list. Return +1 to put them at the start */ 
