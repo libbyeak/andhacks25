@@ -29,7 +29,7 @@ const now = new Date()
                     allEvents ? 
                     (
                     allEvents.map(event => (
-                            <tr class={(new Date().getDay() == event.date.getDay() && new Date().getHours() == event.date.getHours())  ? "bg-red-700" : "odd:bg-pgreen even:bg-pyellow"}>
+                            <tr class={(new Date().getDate() == event.date.getDate() && new Date().getHours() == event.date.getHours())  ? "bg-red-700" : "odd:bg-pgreen even:bg-pyellow"}>
                                 <td class="py-3">{event.date.toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: 'numeric', hour12: true, minute: 'numeric', timeZone: 'America/New_York'})}</td>
                                 <td class="py-3"><strong>{event.name}</strong></td>
                                 <td class="py-3">{event.location}</td>

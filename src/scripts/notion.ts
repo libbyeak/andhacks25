@@ -65,7 +65,6 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
 
   const events = pages.results
   .map((page) => {
-    console.log('page is: ' +  JSON.stringify(page.properties.Name));
     return {
       id: page,
       date: new Date(page.properties.Date.date.start),
