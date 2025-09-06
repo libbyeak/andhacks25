@@ -16,13 +16,13 @@ const now = new Date()
     <body>
         <Header />
         <HeaderSpacer />
-        <div class="flex justify-center justify-items-center bg-slate-400">
+        <div class="flex justify-center justify-items-center text-left bg-slate-400">
             <table class="table-auto w-5/6">
                 <thead>
                     <th class="py-8">Date/Time</th>
                     <th class="py-8">Event Name</th>
                     <th class="py-8">Location</th>
-                    <th class="py-8">Website</th>
+                    <!-- <th class="py-8">Website</th>-->
                 </thead>
                 <tbody>
                     {
@@ -34,7 +34,7 @@ const now = new Date()
                                 <td class="py-3">{event.date.toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: 'numeric', hour12: true, minute: 'numeric'})}</td>
                                 <td class="py-3"><strong>{event.name}</strong></td>
                                 <td class="py-3">{event.location}</td>
-                                <td><a href={event.website} target="_blank">{event.website}</a></td>
+                                <!--<td><a href={event.website} target="_blank">{event.website}</a></td> -->
                             </tr>
                         </div>
                         ))
