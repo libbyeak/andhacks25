@@ -31,7 +31,7 @@ const now = new Date()
                     allEvents.map(event => (
                         <div class="m-0 p-0"> <!-- auto-navigate to anchor for the current time -->
                             <tr class={Math.floor(event.date.getTime() / 3600) == Math.floor(Date.now() / 3600) ? "bg-red-700" : "odd:bg-pgreen even:bg-pyellow"}>
-                                <td class="py-3">{event.date.toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: 'numeric', hour12: true, minute: 'numeric'})}</td>
+                                <td class="py-3">{event.date.toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: 'numeric', hour12: true, minute: 'numeric', timeZone: 'America/New_York'})}</td>
                                 <td class="py-3"><strong>{event.name}</strong></td>
                                 <td class="py-3">{event.location}</td>
                                 <!--<td><a href={event.website} target="_blank">{event.website}</a></td> -->
