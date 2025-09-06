@@ -27,6 +27,12 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
               equals: true,
             }
           },
+          {
+            property: "Private",
+            checkbox: {
+              equals: false,
+            }
+          }
         ],
       },
     })
@@ -37,20 +43,17 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
   }
   else {
     pages = await notion.databases.query({
-        database_id: import.meta.env.NOTION_DATABASE_ID,
-      //For now, at least, there are few enough events in the DB that we don't need a filter
-      //On the full itinerary, we want to show events that already happened during the hackathon, so date filtering
-      //can't be done at this step. We've got to do that when we display the events.
-      /*filter: {
+      database_id: import.meta.env.NOTION_DATABASE_ID,
+      filter: {
         and: [
           {
-            property: "Show on Homepage",
+            property: "Private",
             checkbox: {
-              equals: true,
+              equals: false,
             }
-          },
+          }
         ],
-      },*/
+      },
     })
     .catch(err => {
       /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
@@ -62,7 +65,7 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
 
   const events = pages.results
   .map((page) => {
-    let dateObj = new Date(page.properties.Date.date.start);
+    console.log('page is: ' +  JSON.stringify(page.properties.Name));
     return {
       id: page,
       date: new Date(page.properties.Date.date.start),
@@ -76,7 +79,6 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
   .sort((a, b) => {
     try {
     if (a != undefined && b!= undefined) {
-      console.log('times are: (' + a.date.getTime() + '+' + a.date.toDateString() + ') (' + ' ' + b.date.getTime());
       return a.date.getTime() - b.date.getTime()
     }
     }
