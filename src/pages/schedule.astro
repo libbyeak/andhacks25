@@ -46,6 +46,13 @@ const now = new Date()
                 </tbody>
             </table>
         </div>
+        <script>
+            let x = new Date();
+            x.setMinutes(0);
+            x.setSeconds(0);
+            console.log('date is' +  x);
+            window.location = '/schedule#' + x.toISOString();
+        </script>
         <Footer />
     </body>
 </html>
