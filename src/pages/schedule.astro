@@ -6,7 +6,6 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "src/consts";
 import {getEvents} from "src/scripts/notion.ts"
 import HeaderSpacer from "@/components/HeaderSpacer.astro";
 const allEvents = await getEvents(false);
-const now = new Date()
 ---
 <!doctype html>
 <html lang="en">
@@ -51,7 +50,7 @@ const now = new Date()
             x.setMinutes(0);
             x.setSeconds(0);
             console.log('date is' +  x);
-            window.location = '/schedule#' + x.toISOString();
+            window.location = '/schedule#' + x.toISOString(); /* VSCode complains about this, but it works in practice */
         </script>
         <Footer />
     </body>

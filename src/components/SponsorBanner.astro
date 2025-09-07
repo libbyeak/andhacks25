@@ -1,24 +1,14 @@
 ---
-import { Icon } from "astro-icon/components"; /* not used but maybe they will be */
-import { Image } from "astro:assets";
-//import { getEvents } from 'src/scripts/notion';
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getCollection } from "astro:content";
 import SponsorBadge from "@/components/SponsorBadge.astro";
 const sponsors = await getCollection('sponsors');
 ---
 <section class=" bg-pslate border-2 border-black group rounded-xl sm:m-5 sm:p-5">
-  <!-- grey so as to be least likely to conflict with sponsors' logos -->
-  <!-- <div class="grid row-start-1">
-    <div class="flex gap-0 justify-start items-start">
-      <h3 class="text-6xl">Our Sponsors</h3>
-    </div>
-  </div>-->
   <div class="grid row-start-1">
-    <!-- This is what I changed, from a flex layout directive, to make the "Sponsor Us" button be vertically centered. It was some voodoo bullshit, I tell you. -->
     <div class="flex flex-col justify-content items-center justify-items-stretch px-4 md:px-0 lg:gap-10 md:gap-0">
       <div class="flex flex-col gap-0 justify-self-center justify-center items-center w-full p-0px">
         <h3 class="text-3xl lg:text-6xl p-0 mb-3 text-white">Our Sponsors & Partners</h3> <!--- ampersand or the word "and?" -->
-        <!-- left side -->
+        <!-- left side (top, as of 9/6/25) -->
          <ul class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 auto-rows-fr"><!--FIXME: redo layout, I think -->
          {sponsors.map((s) => (        
             <li class="grid row-span-2">
@@ -34,7 +24,7 @@ const sponsors = await getCollection('sponsors');
          </ul>
       </div>
       <div class="flex flex-col justify-end self-stretch items-center content-center object-contain group gap-0 p-0px">
-        <!-- right side -->
+        <!-- right side (bottom, as of 9/6/25) -->
         <div class="flex flex-row object-contain justify-center items-center justify-self-stretch self-stretch xl:p-5 h-full lg:ml-0px">
         <a class="flex flex-col p-5" href="/sponsors">
             <div class="flex flex-col justify-end items-center content-center bg-amber-300 shadow-card hover:shadow-hover transition rounded-xl border-1 border-black z-2 lg:px-5 xl:py-10">

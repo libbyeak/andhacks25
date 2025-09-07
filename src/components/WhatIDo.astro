@@ -2,8 +2,6 @@
 /* This is the widget that has all the tiles.*/
 import { getCollection } from "astro:content";
 const posts = (await getCollection("blog"));
-import FormattedDate from "@/components/FormattedDate.astro";
-import { Icon } from "astro-icon/components";
 
 let getRandomClassIndex = -1; /* this seems like the easiest shim for function-level static variables in TS */
 
@@ -31,7 +29,6 @@ const getRandomClass = () => {
   <p class="text-pblack">Got questions?</p>
   <h2 class="text-8xl font-bold">FAQs</h2>
   <ul class="flex flex-wrap justify-center gap-4 py-10">
-    <!--<a href={`/blog/${post.id}/`} class="flex flex-col gap-4"> # HTML comments are not allowed within code blocks, for whatever reason -->
     {
       posts.map((post) => {
         const randomClass = getRandomClass();
