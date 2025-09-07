@@ -8,7 +8,7 @@ export type ItineraryEvent = {
 };
 
 export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent[]> {
-  let somethingIsFuckedUp = false; /* flag variable to judge whether we abort the mission and return early */
+  let signalError = false; /* flag variable to judge whether we abort the mission and return early */
 
   const notion = new Client({ auth: import.meta.env.NOTION_TOKEN });
   let pages = null;
@@ -28,7 +28,7 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
             }
           },
           {
-            property: "Private",
+            property: "Private", /* hide placeholders in Notion, to avoid the schedule filling with items named things like "Workshop" or "Event" */
             checkbox: {
               equals: false,
             }
@@ -38,7 +38,7 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
     })
     .catch(err => {
       /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
-      somethingIsFuckedUp = true; /* 'return' won't help us here (promises) -- set a flag */ 
+      signalError = true; /* 'return' won't help us here (promises) -- set a flag */ 
     });
   }
   else {
@@ -57,11 +57,11 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
     })
     .catch(err => {
       /* Catch errors here so that the entire site doesn't lock up with a "fetch failed" error page */
-      somethingIsFuckedUp = true; /* 'return' won't help us here (promises) -- set a flag */ 
+      signalError = true; /* 'return' won't help us here (promises) -- set a flag */ 
     });
   }
 
-  if (somethingIsFuckedUp) return false;
+  if (signalError) return false;
 
   const events = pages.results
   .map((page) => {
