@@ -1,5 +1,5 @@
 ---
-tier: 'gold'
+tier: 2
 name: 'Taylor Engineering'
 logo: 'taylor.png'
 logoAlt: 'Taylor Engineering Logo'

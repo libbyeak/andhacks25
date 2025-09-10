@@ -1,5 +1,5 @@
 ---
-tier: 'gold'
+tier: 1
 name: 'W&M Year of the Environment (YOTE)'
 logo: 'yote.png'
 logoAlt: 'YOTE Logo'

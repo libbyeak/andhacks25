@@ -1,7 +1,7 @@
 ---
-tier: 'gold'
+tier: 1
 name: 'Institute for Integrative Conservation'
-logo: 'iic.svg'
+logo: 'iic.png'
 logoAlt: 'IIC Logo'
 website: ''
 ---

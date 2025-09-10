@@ -1,5 +1,5 @@
 ---
-tier: 'partner'
+tier: 1
 name: 'W&M Department of Arts & Sciences'
 logo: 'cdsp.png'
 logoAlt: 'W&M Department of Arts & Sciences Logo'

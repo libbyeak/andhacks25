@@ -4,17 +4,22 @@ import { type ImageMetadata } from "astro";
 
 export interface Props {
     name: string;
-    tier: string;
+    tier: number;
     logo: ImageMetadata;
     website: string;
     color: string;
+    w?: number;
 }
 
-const {name, tier, logo, website, color} = Astro.props;
+const {name, tier, logo, website, color, w} = Astro.props;
 const images = import.meta.glob<{default: ImageMetadata}>('../assets/sponsors/*.{svg,png}')
 ---
 <div class:list={["flex flex-col p-2 m-2 border-1 border-black rounded-xl justify-center items-center", color]}>
     <a href={website} target="_blank">
-        <Image class="brightness-0" src={logo} alt="Sponsor logo" />
+        {name == 'Taylor Engineering' ?
+            <Image height={180 as number} class="object-fit brightness-0" src={logo} alt="Sponsor logo" />
+            :
+            <Image class="object-fit brightness-0" src={logo} alt="Sponsor logo" />
+        }
     </a>
 </div>

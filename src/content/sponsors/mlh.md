@@ -1,5 +1,5 @@
 ---
-tier: 'gold'
+tier: 1
 name: 'Major League Hacking'
 logo: 'mlh-logo-grayscale.png'
 logoAlt: 'MLH Logo'

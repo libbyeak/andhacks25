@@ -1,5 +1,5 @@
 ---
-tier: 'gold'
+tier: 1
 name: 'W&M Cohen Center for Career and Professional Development'
 logo: 'careercenter.svg'
 logoAlt: 'Cohen Career Center Logo'

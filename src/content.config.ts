@@ -20,7 +20,7 @@ const blog = defineCollection({
 const sponsors = defineCollection({
     loader: glob({ base: './src/content/sponsors', pattern: '**/*.{md,mdx}'}),
     schema: ({image}) => z.object({
-        tier: z.string(),
+        tier: z.number(),
         name: z.string(),
         logo: image(),
         logoAlt: z.string(),

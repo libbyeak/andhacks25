@@ -1,5 +1,5 @@
 ---
-tier: 'gold'
+tier: 1
 name: 'EY'
 logo: 'ey.png'
 logoAlt: 'EY Logo'
