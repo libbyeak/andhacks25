@@ -11,7 +11,7 @@ const sponsors = await getCollection('sponsors');
         <!-- left side (top, as of 9/6/25) -->
          <ul class="grid grid-cols-3 md:grid-cols-4 xl:grid-cols-6 auto-rows-fr">
             {
-              sponsors.sort((a,b)=> { return a.data.tier - b.data.tier }).reverse().map((s) => (
+              sponsors.sort((a,b)=> { return b.data.tier - a.data.tier }).map((s) => (
                 <li class={s.data.tier == 2 ? "grid col-span-2" : s.data.tier == 3 ? "grid col-span-3" : "grid col-span-1" }>
                   <SponsorBadge
                     name={s.data.name}

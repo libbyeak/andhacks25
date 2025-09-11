@@ -24,7 +24,7 @@ Just add a Markdown file to `src/content/sponsors/<sponsor>.md` with these lines
 ```
 --
 name: <Name of Sponsor>
-tier: 'Bronze'
+tier: 1
 logo: 'src/assets/sponsors/<sponsor logo>.svg'
 logoAlt: '<Sponsor's Logo>'
 website: '<sponsor's website>'
@@ -32,8 +32,9 @@ website: '<sponsor's website>'
 
 ```
 
-The 'tier' attribute would hypothetically control the size and prominence of a sponsor's logo based on how much they donated. What that hierarchy looks like is more up to the sponsor's team than to me, and so I haven't implemented that. As of 6/12/25, it doesn't do anything. Don't worry about it.
+The 'tier' attribute should be a number greater than 1 (I don't recommend going above 4). Sponsors are sorted by tier in descending order and their columns span that number of columns in the grid. 
 
+### FAQs
 Adding FAQs is exactly the same process as above. Create a file in the `src/content/blog` directory, which uses the same Markdown format as for sponsors. Possible properties include:
 
 - `title`: The question.
@@ -59,10 +60,11 @@ Create a file in the project's root folder (named "andhacks25") called `.env` wi
 - `NOTION_DATABASE_ID`: The ID of the Notion DB from which to fetch events. This will just be an insanely long hexadecimal number.
 
 #### Notes on the Notion integration: 
+- You must specify a time for every event. If you don't, you'll get a 500 error when Astro can't run date functions on undefined.
 
-- Blank fields in a Notion database will display as "TBA"
+- Blank fields (other than date/time) in a Notion database will display as "TBA"
 
-- If you change the spreadsheet's column names/types in Notion, you will need to update the schema in notion.ts. See that file for details of how to do so
+- If you change the spreadsheet's column names/types in Notion, you will need to update the schema in notion.ts. See that file for details of how to do that.
 
 ### Firebase Integration: The Portal
 

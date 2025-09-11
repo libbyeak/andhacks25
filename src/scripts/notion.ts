@@ -25,6 +25,12 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
             property: "Show on Homepage",
             checkbox: {
               equals: true,
+            },
+          },
+          {
+            property: "Date",
+              date: {
+                after: new Date().toISOString()
             }
           },
           {
