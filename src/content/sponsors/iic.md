@@ -1,5 +1,5 @@
 ---
-tier: 1
+tier: 0
 name: 'Institute for Integrative Conservation'
 logo: 'iic.png'
 logoAlt: 'IIC Logo'

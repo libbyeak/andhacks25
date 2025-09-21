@@ -1,5 +1,5 @@
 ---
-tier: 1
+tier: 0
 name: 'W&M CS Department'
 logo: 'cs.svg'
 logoAlt: 'CS Department logo'

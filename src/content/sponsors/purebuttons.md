@@ -1,5 +1,5 @@
 ---
-tier: 1
+tier: 0
 name: 'Pure Buttons'
 logo: 'purebuttons.svg'
 logoAlt: 'Pure Buttons Logo'
