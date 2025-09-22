@@ -18,8 +18,8 @@ import CheckInImage from "@/assets/checkin.jpg";
         <HeaderSpacer />
         <main class="container mx-auto md:px-10">
             <p class="text-4xl mb-10 underline text-bold text-center">Register for &hacks XI</p>
-            <div class="flex flex-row">
-                <div class="flex w-1/2 object-contain">
+            <div class="flex flex-col md:flex-row">
+                <div class="flex md:w-1/2 object-contain">
                     <div class="grid auto-rows gap-4 grid-columns-1 object-fit">
                         <div class="grid items-center content-center text-center sm:w-11/12 px-8 rounded-3xl border-1 border-black shadow-card py-25 gap-6">
                             <p class="text-3xl underline">Hacker</p>
@@ -38,7 +38,7 @@ import CheckInImage from "@/assets/checkin.jpg";
                         </div>
                     </div>
                 </div>
-                <div class="flex flex-row w-1/2 justify-center items-center content-center ">
+                <div class="flex flex-row mb-5 md:mb-0md:w-1/2 justify-center items-center content-center ">
                     <Image class="object-fit rounded-xl border-2 border-black" src={CheckInImage} alt="Hackers at &hacks X" />
                 </div>
             </div>
