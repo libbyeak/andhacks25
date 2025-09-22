@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon/components"; /* not used but maybe they will be */
+import { Image } from "astro:assets";
+import { GOOGLE_MAPS_ISC_URL } from "src/consts";
+import { getEvents } from 'src/scripts/notion';
+import DroneImage from 'src/assets/drone.jpg';
+import WacomImage from 'src/assets/wacom.jpg';
+import KindleImage from 'src/assets/kindle.jpg.avif';
+import BeatsImage from 'src/assets/beats.jpeg';
+import ProjectorImage from 'src/assets/projector.webp.jpeg';
+const events = await getEvents(true);
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/*.{jpeg,jpg,png,gif}"
+);
+---
+<section class="bg-pcolonialyellow border-2 border-black group rounded-xl sm:m-5 sm:p-5">
+  <div class="grid row-start-1">
+    <div class="flex gap-0 justify-center items-center">
+      <div class="flex flex-col">
+      <div><h3 class="text-2xl sm:text-6xl m-0">Grand Prizes</h3></div>
+      <div><p class="text-2xl text-center mb-5">The options for top prize at &hacks XI</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="grid row-start-2">
+    <p class="text-sm">&nbsp</h3>
+  </div>
+  <div class="grid row-start-3">
+    <ul class="grid grid-cols-3 grid-auto-rows">
+        <li class="grid p-3 m-3">
+          <Image class="border-2 border-black rounded-xl" width="320" height="240" src={DroneImage} alt="Drone" />
+          <p class="text-xl text-center">A Drone</p>
+        </li>
+          <li class="grid p-3 m-3"><Image class="border-2 border-black rounded-xl" width="320" height="240" src={WacomImage} alt="Drawing Tablet" />
+          <p class="text-xl text-center">A Drawing Tablet</p>
+        </li>
+        <li class="grid p-3 m-3">
+          <Image class="border-2 border-black rounded-xl" width="320" height="240" src={KindleImage} alt="Kindle" />
+          <p class="text-xl text-center">A Kindle E-Reader</p>
+        </li>
+        <li class="grid p-3 m-3">
+          <Image class="border-2 border-black rounded-xl" width="320" height="240" src={BeatsImage} alt="Beats" />
+          <p class="text-xl text-center">Beats Headphones</p>
+        </li>
+        <li class="grid p-3 m-3">
+          <Image class="border-2 border-black rounded-xl" width="320" height="240" src={ProjectorImage} alt="Projector" />
+          <p class="text-xl text-center">A Video Projector</p>
+        </li>
+      </ul>
+  </div>
+</section>
