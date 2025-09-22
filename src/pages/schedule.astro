@@ -18,9 +18,9 @@ const allEvents = await getEvents(false);
         <div class="flex justify-center justify-items-center text-left bg-slate-400">
             <table class="table-auto w-5/6">
                 <thead>
-                    <th class="py-8">Date/Time</th>
-                    <th class="py-8">Event Name</th>
-                    <th class="py-8">Location</th>
+                    <th class="py-8 text-center">Date/Time</th>
+                    <th class="py-8 text-center">Event Name</th>
+                    <th class="py-8 text-center">Location</th>
                     <!-- <th class="py-8">Website</th>-->
                 </thead>
                 <tbody>
@@ -29,9 +29,9 @@ const allEvents = await getEvents(false);
                     (
                     allEvents.map(event => (
                             <tr class={(new Date().getDate() == event.date.getDate() && new Date().getHours() == event.date.getHours())  ? "bg-red-700" : "odd:bg-pgreen even:bg-pyellow"}>
-                                <td class="py-3"><a name={event.date.toISOString()}><p class="hidden" style="margin-top: -70px;"></p></a>{event.date.toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: 'numeric', hour12: true, minute: 'numeric', timeZone: 'America/New_York'})}</td>
-                                <td class="py-3"><strong>{event.name}</strong></td>
-                                <td class="py-3">{event.location}</td>
+                                <td class="py-3 text-center"><a name={event.date.toISOString()}><p class="hidden" style="margin-top: -70px;"></p></a>{event.date.toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: 'numeric', hour12: true, minute: 'numeric', timeZone: 'America/New_York'})}</td>
+                                <td class="py-3 text-center"><strong>{event.name}</strong></td>
+                                <td class="py-3 text-center">{event.location}</td>
                                 
                                 <!-- <td><a href={event.website} target="_blank">{event.website}</a></td> -->
                             </tr>
@@ -49,6 +49,7 @@ const allEvents = await getEvents(false);
             let x = new Date();
             x.setMinutes(0);
             x.setSeconds(0);
+            x.setMilliseconds(0);
             console.log('date is' +  x);
             window.location = '/schedule#' + x.toISOString(); /* VSCode complains about this, but it works in practice */
         </script>
