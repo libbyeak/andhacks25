@@ -5,6 +5,7 @@ export type ItineraryEvent = {
   name: string;
   location: string;
   website: string;
+  type: string;
 };
 
 export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent[]> {
@@ -79,6 +80,7 @@ export async function getEvents(filterHomepage: boolean): Promise<ItineraryEvent
       /* this is a URL, not a page on our server; make sure links handle that correctly */
       location: page.properties.Location.rich_text[0] ? page.properties.Location.rich_text[0].plain_text : "Location TBA",
       website: page.properties.Website.url ? ((page.properties.Website.url.slice(0,3) == 'http') ? page.properties.Website.url : ('http://' + page.properties.Website.url)) : "", 
+      type: page.properties.Type.name ? page.properties.Type.name : "Event",
     };
   })
   .sort((a, b) => {
