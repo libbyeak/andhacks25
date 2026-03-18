@@ -7,42 +7,44 @@ import devpost from "@/assets/devpostlogo.svg"
 ---
 
 <footer
-  class="flex flex-col items-center container mx-auto p-10 text-center gap-10 pb-40 bg-pdarkblue opacity-bg-30"
+  class="flex flex-col items-center mx-auto p-10 text-center gap-10 pb-40 bg-ah_blue opacity-bg-30"
 >
+ <div class="flex flex-col items-center container mx-auto p-10 text-center gap-10 pb-40"></div>
 
-  <div class="flex items-center gap-6 text-5xl">
-    <a
-      href="https://www.instagram.com/andhackswm/#"
-      target="_blank"
-      class="border-1 p-1 border-black rounded-full bg-ppink shadow-card hover:shadow-hover transition"
-    >
-      <Image width="75" height="75" src={instagram} alt="" />
-      
+    <div class="flex items-center gap-6 text-5xl">
+      <a
+        href="https://www.instagram.com/andhackswm/#"
+        target="_blank"
+        class="border-1 p-1 border-black rounded-full bg-pdarkblue shadow-card hover:shadow-hover transition"
+      >
+        <Image width="75" height="75" src={instagram} alt="" />
+        
+      </a>
+      <a
+        href="https://discord.gg/AUZUPqwM2Q" 
+        target="_blank"
+        class="hidden border-1 p-3 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
+      >
+        <Image  width='60' height='60' src={discord} alt="" />
+      </a>
+      <a
+        href="https://andhacks-xi.devpost.com/?ref_feature=challenge&ref_medium=your-open-hackathons&ref_content=Submissions+open&_gl=1*1x3j701*_gcl_au*Nzk1MDM5NjkwLjE3NTQ2MDIxNzI.*_ga*MTI5Mzk4NDkyOS4xNzQ1ODUzOTI4*_ga_0YHJK3Y10M*czE3NTg5ODk3MDIkbzIwJGcxJHQxNzU4OTg5NzIxJGo0MSRsMCRoMA.."
+        target="_blank"
+        class="hidden border-1 p-3 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
+      >
+      <Image class="p-10px m-10px" width="60" height="60" src={devpost} alt="" />
     </a>
+    </div>
     <a
-      href="https://discord.gg/AUZUPqwM2Q" 
+      href="https://forms.gle/VhPAvQYgNU5FV9EJ9"
       target="_blank"
-      class="hidden border-1 p-3 border-black rounded-full bg-pblue shadow-card hover:shadow-hover transition"
+      rel="noopener noreferrer"
+      class="bg-ah_forest hover:bg-yellow-300 text-black font-bold py-2 px-6 rounded-xl shadow-md flex items-center gap-2 transition duration-200"
     >
-      <Image  width='60' height='60' src={discord} alt="" />
+      Fall 2026 Interest Form
     </a>
-    <a
-      href="https://andhacks-xi.devpost.com/?ref_feature=challenge&ref_medium=your-open-hackathons&ref_content=Submissions+open&_gl=1*1x3j701*_gcl_au*Nzk1MDM5NjkwLjE3NTQ2MDIxNzI.*_ga*MTI5Mzk4NDkyOS4xNzQ1ODUzOTI4*_ga_0YHJK3Y10M*czE3NTg5ODk3MDIkbzIwJGcxJHQxNzU4OTg5NzIxJGo0MSRsMCRoMA.."
-      target="_blank"
-      class="hidden border-1 p-3 border-black rounded-full bg-pgreen shadow-card hover:shadow-hover transition"
-    >
-    <Image class="p-10px m-10px" width="60" height="60" src={devpost} alt="" />
-  </a>
-  </div>
-  <a
-    href="https://forms.gle/VhPAvQYgNU5FV9EJ9"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="bg-yellow-400 hover:bg-yellow-300 text-black font-bold py-2 px-6 rounded-xl shadow-md flex items-center gap-2 transition duration-200"
-  >
-    Fall 2026 Interest Form
-  </a>
-  <div class="flex items-center gap-6 text-5xl text-white">
-    <p style="font-size:18px"> Made by W&M's &hacks team </p>
+    <div class="flex items-center gap-6 text-5xl text-white">
+      <p style="font-size:18px"> Made by W&M's &hacks team </p>
+    </div>
   </div>
 </footer>

@@ -1,30 +1,27 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import AmpersandChallengeImage from "@/assets/andy_YOTE.png";
+import AmpersandChallengeImage from "@/assets/andhacks_2026.jpg";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif}"
 );
 
 ---
 
-<section class="py-20 flex md:flex-row flex-col px-4 md:px-0 gap-10 md:gap-0">
-  <div class="flex flex-col gap-6 justify-start items-start md:w-1/2">
+<section class="w-screen relative -mx-[calc((100vw-100%)/2)] px-4 md:px-16 py-20 flex md:flex-row flex-col gap-10 md:gap-0 bg-ah_blue text-white items-center justify-center">
+  <div class="flex flex-col gap-6 justify-start items-start">
     <p class="text-6xl font-bold">COMING SOON: &HACKS XII</p>
     <p class="text-6xl font-bold"> Sept. 25 - 27</p>
-    <p>
-      See &hacks XI's winners:
-    </p>
     <a
     rel="noopener noreferrer"
     href="https://andhacks-xi.devpost.com/project-gallery"
     target="_self"
-    class="bg-yellow-400 px-9 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition text-black"
+    class="bg-ah_forest px-9 py-3 border-1 border-black rounded-lg shadow-card hover:shadow-hover transition text-black"
     >
-    Project Gallery
+    &hacks XI Project Gallery
     </a>
   </div>
-  <div class="flex flex-col gap-6 justify-start items-start md:w-1/2">
+  <div class="hidden flex flex-col gap-6 justify-start items-start">
     <!-- <p class="text-6xl font-bold">HEADER AREA</p>-->
     <Image src={AmpersandChallengeImage} alt="Ampersand Challenge at &hacks" class="object-cover rounded-xl" width="500" height="500" />
   </div>

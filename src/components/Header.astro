@@ -2,7 +2,7 @@
 /* This is the header/navbar at the top of every page */
 import Link from "./HeaderLink.astro";
 import "../styles/hamburgers.css";
-import AndhacksLogo from "src/assets/light_green_logo.jpg";
+import AndhacksLogo from "src/assets/andhacks_2026.jpg";
 import { Image } from "astro:assets";
 
 ---
@@ -20,10 +20,10 @@ import { Image } from "astro:assets";
     </a>
     <ul class="items-center md:gap-8 text-nowrap hidden md:flex">
       <span class="flex flex-col xl:flex-row justify-end items-center lg:justify-start lg:items-start mr-30"> <!-- go to two rows if the screen is narrow enough -->
-      <span class="flex flex-row gap-0 p-0 m-0">
+      <span class="flex flex-row gap-0 p-10 m-0">
       <li><Link href="/" text="Home" style="primary" /></li>
       </span>
-      <span class="flex flex-row gap-0 p-0 m-0 pr-5">
+      <span class="hidden flex flex-row gap-0 p-0 m-0 pr-5">
       <li><Link href="/sponsors" text="For Sponsors" style="secondary" /></li>
       <li><Link href="/#faq-panel" text="FAQs" style="secondary" /></li>
       <li><Link href="/mlh_conduct" text="MLH Code" style="secondary"></li>
@@ -38,7 +38,7 @@ import { Image } from "astro:assets";
         </span>
       </button>
       <div id="navigation" class="hidden fixed top-0 left-0 w-full h-full bg-white transform -translate-y-full transition-transform duration-300 ease-in-out">
-        <ul class="flex flex-col items-center justify-center h-full gap-8 text-nowrap">
+        <ul class="hidden flex flex-col items-center justify-center h-full gap-8 text-nowrap">
           <li><Link href="/" text="Home" style="primary" /></li>
           <li><Link href="/registration" text="Register" style="secondary" /></li>
           <li><Link href="/sponsors" text="For Sponsors" style="secondary" /></li>
